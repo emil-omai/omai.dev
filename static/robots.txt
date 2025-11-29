@@ -1,5 +1,5 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://omai.dev/sitemap.xml
+Sitemap: sitemap.xml
 
