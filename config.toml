@@ -1,7 +1,7 @@
 baseURL = 'https://omai.dev/'
 defaultContentLanguage = 'sv'
 defaultContentLanguageInSubdir = true
-disableDefaultLanguageRedirect = true
+disableDefaultLanguageRedirect = false
 
 disableKinds = ['taxonomy']
 

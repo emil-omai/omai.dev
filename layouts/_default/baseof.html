@@ -61,7 +61,7 @@
                                 {{ end }}
                             {{ end }}
                             {{ if $translation }}
-                                <a href="{{ $translation.Permalink }}" title="{{ .LanguageName }}">
+                                <a href="{{ $translation.RelPermalink }}" title="{{ .LanguageName }}">
                                     {{ if eq $targetLang "sv" }}🇸🇪{{ else }}🇬🇧{{ end }}
                                 </a>
                             {{ else }}

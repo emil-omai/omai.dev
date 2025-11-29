@@ -27,12 +27,12 @@
                     <time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "2 January 2006" }}</time>
                 </div>
                 <h2 class="post-card-title">
-                    <a href="{{ .Permalink }}">{{ .Title }}</a>
+                    <a href="{{ .RelPermalink }}">{{ .Title }}</a>
                 </h2>
                 {{ if .Params.ingress }}
                 <p class="post-card-ingress">{{ .Params.ingress }}</p>
                 {{ end }}
-                <a href="{{ .Permalink }}" class="post-card-link">{{ if $isEnglish }}Read more{{ else }}Läs mer{{ end }} →</a>
+                <a href="{{ .RelPermalink }}" class="post-card-link">{{ if $isEnglish }}Read more{{ else }}Läs mer{{ end }} →</a>
             </article>
             {{ end }}
         </div>
