@@ -1,0 +1,12 @@
+<figure class="post-image">
+    <img src="{{ .Get "src" | relURL }}" alt="{{ .Get "alt" }}" loading="lazy">
+    {{ if .Get "description" }}
+    <figcaption class="post-image-caption">
+        <span class="post-image-description">{{ .Get "description" }}</span>
+        {{ if .Get "subtext" }}
+        <span class="post-image-subtext">{{ .Get "subtext" }}</span>
+        {{ end }}
+    </figcaption>
+    {{ end }}
+</figure>
+

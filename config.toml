@@ -1,0 +1,47 @@
+baseURL = 'https://omai.dev/'
+defaultContentLanguage = 'sv'
+defaultContentLanguageInSubdir = true
+disableDefaultLanguageRedirect = true
+
+disableKinds = ['taxonomy']
+
+[permalinks]
+  posts = '/posts/:slug/'
+
+[languages]
+  [languages.sv]
+    contentDir = 'content/sv'
+    disabled = false
+    languageName = "Svenska"
+    weight = 1
+    title = "Omai"
+    [languages.sv.params]
+      description = "Omai's hemsida"
+      author = "Omai"
+
+  [languages.en]
+    contentDir = 'content/en'
+    disabled = false
+    languageName = "English"
+    weight = 2
+    title = "Omai"
+    [languages.en.params]
+      description = "Omai's homepage"
+      author = "Omai"
+
+[markup]
+  [markup.goldmark]
+    [markup.goldmark.renderer]
+      unsafe = true
+
+ignoreLogs = ['warning-goldmark-raw-html']
+
+# Minification settings
+[minify]
+  disableHTML = false
+  disableCSS = false
+  disableJS = false
+  disableJSON = false
+  disableSVG = false
+  disableXML = false
+  minifyOutput = true

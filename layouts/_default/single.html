@@ -1,0 +1,38 @@
+{{ define "main" }}
+{{ if eq .Section "posts" }}
+    {{/* Use the posts template for posts */}}
+    {{ $currentLang := .Language.Lang }}
+    {{ $isEnglish := or (eq $currentLang "en") (hasPrefix .RelPermalink "/en/") }}
+    <article class="post-page">
+        <div class="post-header">
+            <div class="post-meta">
+                {{ with .Date }}
+                <time datetime="{{ .Format "2006-01-02" }}">{{ .Format "2 January 2006" }}</time>
+                <span class="post-separator">•</span>
+                {{ end }}
+                <span>{{ if $isEnglish }}Published{{ else }}Publicerad{{ end }}</span>
+            </div>
+            <h1 class="post-title">{{ .Title }}</h1>
+            {{ if .Params.ingress }}
+            <p class="post-ingress">{{ .Params.ingress }}</p>
+            {{ end }}
+        </div>
+        
+        <div class="post-content">
+            {{ .Content }}
+        </div>
+        
+        <div class="post-footer">
+            <a href="{{ if $isEnglish }}/en/posts{{ else }}/posts{{ end }}" class="post-back-link">{{ if $isEnglish }}Back to posts{{ else }}Tillbaka till inlägg{{ end }}</a>
+        </div>
+    </article>
+{{ else }}
+<div class="page-container">
+    <h1>{{ .Title }}</h1>
+    <div class="content">
+        {{ .Content }}
+    </div>
+</div>
+{{ end }}
+{{ end }}
+

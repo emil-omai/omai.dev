@@ -1,0 +1,16 @@
+# Navigation
+nav_home: "Hem"
+nav_about: "Om oss"
+nav_contact: "Kontakt"
+nav_posts: "Inlägg"
+
+# Footer
+footer_contact: "Kontakt"
+footer_links: "Länkar"
+footer_cookie_policy: "Cookiepolicy"
+
+# Posts
+posts_title: "Inlägg"
+post_read_more: "Läs mer"
+post_back_to_posts: "Tillbaka till inlägg"
+post_published: "Publicerad"

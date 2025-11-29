@@ -1,0 +1,10 @@
+{{ $icon := .Get "icon" | default "💡" }}
+{{ $iconColor := .Get "iconColor" | default "coral" }}
+<div class="feature-card">
+    {{ if $icon }}
+    <div class="feature-icon {{ $iconColor }}">{{ $icon }}</div>
+    {{ end }}
+    <h3>{{ .Get "title" }}</h3>
+    <p>{{ .Inner | markdownify }}</p>
+</div>
+

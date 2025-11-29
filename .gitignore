@@ -1,0 +1,27 @@
+# Hugo build output
+public/
+
+# Hugo cache and lock files
+.hugo_build.lock
+resources/
+
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Editor directories and files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Temporary files
+*.tmp
+*.log
+
+# Environment files
+.env
+.env.local
+

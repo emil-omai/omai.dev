@@ -1,0 +1,16 @@
+# Navigation
+nav_home: "Home"
+nav_about: "About"
+nav_contact: "Contact"
+nav_posts: "Posts"
+
+# Footer
+footer_contact: "Contact"
+footer_links: "Links"
+footer_cookie_policy: "Cookie Policy"
+
+# Posts
+posts_title: "Posts"
+post_read_more: "Read more"
+post_back_to_posts: "Back to posts"
+post_published: "Published"

@@ -1,0 +1,27 @@
+{{ define "main" }}
+{{ $currentLang := .Language.Lang }}
+{{ $isEnglish := or (eq $currentLang "en") (hasPrefix .RelPermalink "/en/") }}
+<div class="posts-page">
+    <div class="posts-header">
+        <h1>{{ if $isEnglish }}Posts{{ else }}Inlägg{{ end }}</h1>
+    </div>
+    
+    <div class="posts-list">
+        {{ range .Pages }}
+        <article class="post-card">
+            <div class="post-card-meta">
+                <time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "2 January 2006" }}</time>
+            </div>
+            <h2 class="post-card-title">
+                <a href="{{ .Permalink }}">{{ .Title }}</a>
+            </h2>
+            {{ if .Params.ingress }}
+            <p class="post-card-ingress">{{ .Params.ingress }}</p>
+            {{ end }}
+            <a href="{{ .Permalink }}" class="post-card-link">{{ if $isEnglish }}Read more{{ else }}Läs mer{{ end }} →</a>
+        </article>
+        {{ end }}
+    </div>
+</div>
+{{ end }}
+
