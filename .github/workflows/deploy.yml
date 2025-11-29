@@ -1,0 +1,46 @@
+name: Hugo Static Site Deployment
+
+on:
+  push:
+    branches:
+      - main # Ändra detta till namnet på din huvudbranch om den heter något annat (t.ex. 'master')
+  
+  # Tillåter att du kör workflow manuellt från GitHub-gränssnittet
+  workflow_dispatch:
+
+# Ställ in nödvändiga behörigheter för deployment
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: ⬇️ Checkout kod
+        uses: actions/checkout@v4
+        with:
+          submodules: true # För att hantera teman som submoduler
+          fetch-depth: 0    # För att Hugo ska kunna hämta commit-datum/tid
+
+      - name: 🛠️ Ställ in Hugo
+        uses: peaceiris/actions-hugo@v3
+        with:
+          hugo-version: 'latest'
+          # Du kan lägga till extended: true om du använder SASS/SCSS
+
+      - name: ⚙️ Bygg Hugo-sajten
+        run: hugo --minify
+
+      - name: 📦 Ladda upp artefakter (Deploy)
+        uses: actions/upload-pages-artifact@v3
+        with:
+          # Hugos standard utdatamapp
+          path: ./public
+          
+      - name: 🚀 Deploy till GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
+        
