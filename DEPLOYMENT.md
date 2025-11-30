@@ -88,3 +88,18 @@ With `defaultContentLanguageInSubdir = true`, the site generates:
 
 Ensure your web server is configured to handle both language paths correctly.
 
+## Cloudflare
+Install wrangler
+```bash
+npm install -g wrangler
+```
+
+Authenticate
+```bash
+wrangler login
+```
+
+Create the project in Cloudflare (name must be same as in deploy.yml)
+```bash
+wrangler pages project create omai-www
+```

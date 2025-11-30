@@ -12,8 +12,9 @@ Kontakta oss. Vi skulle gärna höra från dig.
 
 Du kan också nå oss via:
 
-- **E-post**: hello@omai.dev
-- **Sociala medier**: Följ oss för uppdateringar och insikter
+- **E-post**: [hej@omai.dev](mailto:hej@omai.dev)
+- **LinkedIn**: [Följ oss på LinkedIn](https://www.linkedin.com/company/omaidev/about/)
+- **Instagram**: [Följ oss på Instagram](https://www.instagram.com/omai.dev/)
 
 {{< highlight >}}
 Vi är alltid öppna för nya samarbeten och intressanta projekt. Tveka inte att höra av dig!
