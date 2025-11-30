@@ -12,7 +12,7 @@ Get in touch with us. We'd love to hear from you.
 
 You can also reach out through:
 
-- **Email**: hello@omai.dev
+- **Email**: hej@omai.dev
 - **Social Media**: Follow us for updates and insights
 
 {{< highlight >}}

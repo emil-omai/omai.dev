@@ -1,4 +1,4 @@
-baseURL = 'https://emil-omai.github.io/omai.dev/'
+baseURL = '/'
 defaultContentLanguage = 'sv'
 defaultContentLanguageInSubdir = true
 disableDefaultLanguageRedirect = false

@@ -34,9 +34,9 @@
                 {{ $isEnglish := or (eq $currentLang "en") (hasPrefix .RelPermalink "/en/") }}
                 {{ $lang := cond $isEnglish "en" "sv" }}
                 <li><a href="{{ if $isEnglish }}/en/{{ else }}/sv/{{ end }}" {{ if .IsHome }}class="active"{{ end }}>{{ if $isEnglish }}Home{{ else }}Hem{{ end }}</a></li>
-                <li><a href="{{ if $isEnglish }}/en/about{{ else }}/sv/about{{ end }}" {{ if or (eq .Title "About") (eq .Title "Om oss") }}class="active"{{ end }}>{{ if $isEnglish }}About{{ else }}Om oss{{ end }}</a></li>
-                <li><a href="{{ if $isEnglish }}/en/posts{{ else }}/sv/posts{{ end }}" {{ if or (eq .Section "posts") (hasPrefix .RelPermalink "/sv/posts/") (hasPrefix .RelPermalink "/en/posts/") }}class="active"{{ end }}>{{ if $isEnglish }}Posts{{ else }}Inlägg{{ end }}</a></li>
-                <li><a href="{{ if $isEnglish }}/en/contact{{ else }}/sv/contact{{ end }}" {{ if or (eq .Title "Contact") (eq .Title "Kontakt") }}class="active"{{ end }}>{{ if $isEnglish }}Contact{{ else }}Kontakt{{ end }}</a></li>
+                <li><a href="{{ if $isEnglish }}/en/about/{{ else }}/sv/about/{{ end }}" {{ if or (eq .Title "About") (eq .Title "Om oss") }}class="active"{{ end }}>{{ if $isEnglish }}About{{ else }}Om oss{{ end }}</a></li>
+                <li><a href="{{ if $isEnglish }}/en/posts/{{ else }}/sv/posts/{{ end }}" {{ if or (eq .Section "posts") (hasPrefix .RelPermalink "/sv/posts/") (hasPrefix .RelPermalink "/en/posts/") }}class="active"{{ end }}>{{ if $isEnglish }}Posts{{ else }}Inlägg{{ end }}</a></li>
+                <li><a href="{{ if $isEnglish }}/en/contact/{{ else }}/sv/contact/{{ end }}" {{ if or (eq .Title "Contact") (eq .Title "Kontakt") }}class="active"{{ end }}>{{ if $isEnglish }}Contact{{ else }}Kontakt{{ end }}</a></li>
                 <li class="language-switcher">
                     {{ $currentLang := .Language.Lang }}
                     {{ $isEnglish := or (eq $currentLang "en") (hasPrefix .RelPermalink "/en/") }}
