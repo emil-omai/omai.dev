@@ -47,6 +47,7 @@ jobs:
         run: hugo --minify
 
       - name: 🔑 Autentisera med Workload Identity Federation (WIF)
+        id: auth
         uses: google-github-actions/auth@v2
         with:
           # Använder de nya WIF-variablerna 
@@ -56,8 +57,5 @@ jobs:
       - name: 📤 Synkronisera 'public' till Cloud Storage
         # gsutil är tillgängligt efter autentiseringssteget
         run: |
-          # Sätter projektkontexten explicit
-          gcloud config set project ${{ env.GCP_PROJECT_ID }}
-
           # Synkroniserar innehållet, tar bort filer i bucket som inte finns i 'public/'
-          gsutil -m rsync -r public/ gs://${{ env.BUCKET_NAME }}
+          gsutil -m rsync -r public/ gs://${{ env.BUCKET_NAME }} --project ${{ env.GCP_PROJECT_ID }}
