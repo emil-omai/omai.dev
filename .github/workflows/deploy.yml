@@ -20,7 +20,7 @@ jobs:
     
     env:
       BUCKET_NAME: omai-www 
-      GCP_PROJECT_ID: linen-compiler-479716-j7
+      GCP_PROJECT_ID: 590926833494 #linen-compiler-479716-j7
       WIF_POOL_ID: github-deploy-pool
       WIF_PROVIDER_ID: github-oidc-provider # <-- Nytt Provider ID
       WIF_SERVICE_ACCOUNT: github-hugo-deployer@linen-compiler-479716-j7.iam.gserviceaccount.com 
