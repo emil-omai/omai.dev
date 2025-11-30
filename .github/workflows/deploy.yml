@@ -58,4 +58,4 @@ jobs:
         # gsutil är tillgängligt efter autentiseringssteget
         run: |
           # Synkroniserar innehållet, tar bort filer i bucket som inte finns i 'public/'
-          gsutil -m rsync -r public/ gs://${{ env.BUCKET_NAME }} --project ${{ env.GCP_PROJECT_ID }}
+          gsutil -m rsync -r public/ gs://${{ env.BUCKET_NAME }}
