@@ -18,6 +18,17 @@ jobs:
   deploy:
     runs-on: ubuntu-latest
     
+    env:
+      BUCKET_NAME: omai-www 
+      GCP_PROJECT_ID: linen-compiler-479716-j7
+      WIF_POOL_ID: github-deploy-pool
+      WIF_PROVIDER_ID: github-oidc-provider # <-- Nytt Provider ID
+      WIF_SERVICE_ACCOUNT: github-hugo-deployer@linen-compiler-479716-j7.iam.gserviceaccount.com 
+    
+    permissions:
+      contents: 'read'
+      id-token: 'write' 
+
     steps:
       - name: ⬇️ Checkout kod
         uses: actions/checkout@v4
@@ -34,13 +45,15 @@ jobs:
       - name: ⚙️ Bygg Hugo-sajten
         run: hugo --minify
 
-      - name: 📦 Ladda upp artefakter (Deploy)
-        uses: actions/upload-pages-artifact@v3
+      - name: 🔑 Autentisera med Workload Identity Federation (WIF)
+        uses: google-github-actions/auth@v2
         with:
-          # Hugos standard utdatamapp
-          path: ./public
-          
-      - name: 🚀 Deploy till GitHub Pages
-        id: deployment
-        uses: actions/deploy-pages@v4
+          # Använder de nya WIF-variablerna 
+          workload_identity_provider: projects/${{ env.GCP_PROJECT_ID }}/locations/global/workloadIdentityPools/${{ env.WIF_POOL_ID }}/providers/${{ env.WIF_PROVIDER_ID }}
+          service_account: ${{ env.WIF_SERVICE_ACCOUNT }}
         
+      - name: 📤 Synkronisera 'public' till Cloud Storage
+        # gsutil är tillgängligt efter autentiseringssteget
+        run: |
+          # Synkroniserar innehållet, tar bort filer i bucket som inte finns i 'public/'
+          gsutil -m rsync -r public/ gs://${{ env.BUCKET_NAME }}
