@@ -46,16 +46,12 @@ jobs:
       - name: ⚙️ Bygg Hugo-sajten
         run: hugo --minify
 
-      - name: 🔑 Autentisera med Workload Identity Federation (WIF)
-        id: auth
-        uses: google-github-actions/auth@v2
+      # Step 3: Deploy to Cloudflare Pages
+      - name: Deploy to Cloudflare Pages
+        uses: cloudflare/pages-action@v1
         with:
-          # Använder de nya WIF-variablerna 
-          workload_identity_provider: projects/${{ env.GCP_PROJECT_NO }}/locations/global/workloadIdentityPools/${{ env.WIF_POOL_ID }}/providers/${{ env.WIF_PROVIDER_ID }}
-          service_account: ${{ env.WIF_SERVICE_ACCOUNT }}
-        
-      - name: 📤 Synkronisera 'public' till Cloud Storage
-        # gsutil är tillgängligt efter autentiseringssteget
-        run: |
-          # Synkroniserar innehållet, tar bort filer i bucket som inte finns i 'public/'
-          gsutil -m rsync -r public/ gs://${{ env.BUCKET_NAME }}
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          projectName: omai-www
+          directory: ./public # Path to your built static site (adjust as needed)
+
