@@ -112,6 +112,8 @@ export async function onRequestOptions() {
 export async function onRequestPost(context) {
   const { request, env } = context;
 
+  console.log('onRequestPost');
+
   try {
     const formData = await request.formData();
     const name = formData.get('name');
@@ -190,6 +192,7 @@ export async function onRequestPost(context) {
     }
 
     // Create Trello card with CV attachment (non-blocking - don't fail if Trello is unavailable)
+    console.log('Creating Trello card');
     createTrelloCard(
       {
         name,
