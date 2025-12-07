@@ -23,32 +23,25 @@
 async function createTrelloCard({ name, email, message, cvFileName, cvBase64 }, env) {
   // Check if Trello credentials are configured
   // Support TRELLO_TOKEN (preferred) or TRELLO_SECRET for backwards compatibility
-  const trelloToken = env.TRELLO_TOKEN || env.TRELLO_SECRET;
-  if (!env.TRELLO_API_KEY || !trelloToken || !env.TRELLO_LIST_ID) {
+  // Trim whitespace to handle any trailing newlines or spaces in environment variables
+  const trelloToken = (env.TRELLO_TOKEN || env.TRELLO_SECRET)?.trim();
+  const trelloApiKey = env.TRELLO_API_KEY?.trim();
+  if (!trelloApiKey || !trelloToken || !env.TRELLO_LIST_ID) {
     console.warn('Trello credentials not fully configured, skipping card creation');
     console.warn('Required: TRELLO_API_KEY, TRELLO_TOKEN, TRELLO_LIST_ID');
     return null;
   }
 
   try {
-    // Create the card
-    const cardData = {
+    // Trello API requires key and token as query parameters, not in the body
+    const cardPayload = {
       name: `Jobbansökan: ${name}`,
       desc: `**E-post:** ${email}\n\n**Meddelande:**\n${message}\n\n**CV:** ${cvFileName}`,
       idList: env.TRELLO_LIST_ID,
-      key: env.TRELLO_API_KEY,
-      token: env.TRELLO_SECRET,
-    };
-
-    // Trello API requires key and token as query parameters, not in the body
-    const cardPayload = {
-      name: cardData.name,
-      desc: cardData.desc,
-      idList: cardData.idList,
     };
 
     const queryParams = new URLSearchParams({
-      key: env.TRELLO_API_KEY,
+      key: trelloApiKey,
       token: trelloToken,
     });
 
@@ -94,7 +87,7 @@ async function createTrelloCard({ name, email, message, cvFileName, cvBase64 }, 
         // Create FormData for file upload
         const formData = new FormData();
         formData.append('file', blob, cvFileName);
-        formData.append('key', env.TRELLO_API_KEY);
+        formData.append('key', trelloApiKey);
         formData.append('token', trelloToken);
 
         const attachmentResponse = await fetch(
