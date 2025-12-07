@@ -45,7 +45,7 @@ export async function onRequestPost(context) {
         'Content-Type': 'application/json',
       },
       body: JSON.stringify({
-        from: 'Omai Website <noreply@omai.dev>',
+        from: 'Omai Website <noreply@updates.omai.dev>',
         to: [env.EMAIL_TO],
         subject: `Kontaktformulär: ${name}`,
         html: `
