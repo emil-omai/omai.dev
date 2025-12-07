@@ -63,7 +63,7 @@ export async function onRequestPost(context) {
       const error = await emailResponse.text();
       console.error('Resend API error:', error);
       return new Response(
-        JSON.stringify({ error: 'Failed to send email' }),
+        JSON.stringify({ message: 'Failed to send email', error: error }),
         { 
           status: 500,
           headers: { 
