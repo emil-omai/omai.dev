@@ -36,6 +36,7 @@ async function createTrelloCard({ name, email, message, cvFileName, cvBase64 }, 
       token: env.TRELLO_SECRET,
     };
 
+    console.log('Trello card data:', cardData);
     const trelloResponse = await fetch('https://api.trello.com/1/cards', {
       method: 'POST',
       headers: {
@@ -43,6 +44,8 @@ async function createTrelloCard({ name, email, message, cvFileName, cvBase64 }, 
       },
       body: JSON.stringify(cardData),
     });
+
+    console.log('Trello response:', trelloResponse);
 
     if (!trelloResponse.ok) {
       const errorText = await trelloResponse.text();
