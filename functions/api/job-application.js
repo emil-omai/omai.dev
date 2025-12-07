@@ -38,9 +38,18 @@ export async function onRequestPost(context) {
       );
     }
 
-    // Convert file to base64 for email attachment
+    // Convert file to base64 for email attachment (chunked to avoid stack overflow)
     const arrayBuffer = await cvFile.arrayBuffer();
-    const base64File = btoa(String.fromCharCode(...new Uint8Array(arrayBuffer)));
+    const uint8Array = new Uint8Array(arrayBuffer);
+    const chunkSize = 8192; // Process in 8KB chunks
+    let binaryString = '';
+    
+    for (let i = 0; i < uint8Array.length; i += chunkSize) {
+      const chunk = uint8Array.subarray(i, i + chunkSize);
+      binaryString += String.fromCharCode.apply(null, chunk);
+    }
+    
+    const base64File = btoa(binaryString);
 
     // Send email using Resend API with attachment
     const emailResponse = await fetch('https://api.resend.com/emails', {
