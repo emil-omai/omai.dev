@@ -46,8 +46,6 @@ async function createTrelloCard({ name, email, message, cvFileName, cvBase64 }, 
     });
 
     const trelloUrl = `https://api.trello.com/1/cards?${queryParams.toString()}`;
-    console.log('Trello card data:', cardPayload);
-    console.log('About to call Trello API:', trelloUrl);
     
     let trelloResponse;
     try {
@@ -58,7 +56,6 @@ async function createTrelloCard({ name, email, message, cvFileName, cvBase64 }, 
         },
         body: JSON.stringify(cardPayload),
       });
-      console.log('Trello response received:', trelloResponse.status, trelloResponse.statusText);
     } catch (fetchError) {
       console.error('Fetch error when calling Trello API:', fetchError);
       throw fetchError;
@@ -71,7 +68,6 @@ async function createTrelloCard({ name, email, message, cvFileName, cvBase64 }, 
     }
 
     const card = await trelloResponse.json();
-    console.log('Trello card created successfully:', card.id);
 
     // Attach the CV file to the card
     if (cvBase64 && cvFileName) {
@@ -101,9 +97,6 @@ async function createTrelloCard({ name, email, message, cvFileName, cvBase64 }, 
         if (!attachmentResponse.ok) {
           const errorText = await attachmentResponse.text();
           console.error('Trello attachment error:', attachmentResponse.status, errorText);
-        } else {
-          const attachment = await attachmentResponse.json();
-          console.log('CV attached to Trello card:', attachment.id);
         }
       } catch (attachError) {
         // Don't fail the whole process if attachment fails
@@ -131,8 +124,6 @@ export async function onRequestOptions() {
 
 export async function onRequestPost(context) {
   const { request, env } = context;
-
-  console.log('onRequestPost');
 
   try {
     const formData = await request.formData();
@@ -213,7 +204,6 @@ export async function onRequestPost(context) {
 
     // Create Trello card with CV attachment (non-blocking - don't fail if Trello is unavailable)
     // Use context.waitUntil to ensure the async operation completes
-    console.log('Creating Trello card');
     const trelloPromise = createTrelloCard(
       {
         name,
