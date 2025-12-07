@@ -3,7 +3,101 @@
  * Set environment variables in Cloudflare Pages dashboard:
  * - EMAIL_TO: The email address to send applications to
  * - RESEND_API_KEY: Your Resend API key (get from https://resend.com)
+ * - TRELLO_API_KEY: Your Trello API key (get from https://trello.com/app-key)
+ * - TRELLO_SECRET: Your Trello API token (generate from https://trello.com/app-key)
+ * - TRELLO_LIST_ID: The ID of the Trello list where cards should be created
+ *   (Find this by opening a card in the list and adding .json to the URL)
  */
+
+/**
+ * Helper function to create a Trello card for a job application
+ * @param {Object} params - Application data
+ * @param {string} params.name - Applicant name
+ * @param {string} params.email - Applicant email
+ * @param {string} params.message - Cover letter/message
+ * @param {string} params.cvFileName - Name of the CV file
+ * @param {string} params.cvBase64 - Base64 encoded CV file content
+ * @param {Object} env - Environment variables
+ */
+async function createTrelloCard({ name, email, message, cvFileName, cvBase64 }, env) {
+  // Check if Trello credentials are configured
+  if (!env.TRELLO_API_KEY || !env.TRELLO_SECRET || !env.TRELLO_LIST_ID) {
+    console.warn('Trello credentials not fully configured, skipping card creation');
+    return null;
+  }
+
+  try {
+    // Create the card
+    const cardData = {
+      name: `Jobbansökan: ${name}`,
+      desc: `**E-post:** ${email}\n\n**Meddelande:**\n${message}\n\n**CV:** ${cvFileName}`,
+      idList: env.TRELLO_LIST_ID,
+      key: env.TRELLO_API_KEY,
+      token: env.TRELLO_SECRET,
+    };
+
+    const trelloResponse = await fetch('https://api.trello.com/1/cards', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(cardData),
+    });
+
+    if (!trelloResponse.ok) {
+      const errorText = await trelloResponse.text();
+      console.error('Trello API error:', trelloResponse.status, errorText);
+      return null;
+    }
+
+    const card = await trelloResponse.json();
+    console.log('Trello card created successfully:', card.id);
+
+    // Attach the CV file to the card
+    if (cvBase64 && cvFileName) {
+      try {
+        // Convert base64 to binary for FormData
+        const binaryString = atob(cvBase64);
+        const bytes = new Uint8Array(binaryString.length);
+        for (let i = 0; i < binaryString.length; i++) {
+          bytes[i] = binaryString.charCodeAt(i);
+        }
+        const blob = new Blob([bytes]);
+
+        // Create FormData for file upload
+        const formData = new FormData();
+        formData.append('file', blob, cvFileName);
+        formData.append('key', env.TRELLO_API_KEY);
+        formData.append('token', env.TRELLO_SECRET);
+
+        const attachmentResponse = await fetch(
+          `https://api.trello.com/1/cards/${card.id}/attachments`,
+          {
+            method: 'POST',
+            body: formData,
+          }
+        );
+
+        if (!attachmentResponse.ok) {
+          const errorText = await attachmentResponse.text();
+          console.error('Trello attachment error:', attachmentResponse.status, errorText);
+        } else {
+          const attachment = await attachmentResponse.json();
+          console.log('CV attached to Trello card:', attachment.id);
+        }
+      } catch (attachError) {
+        // Don't fail the whole process if attachment fails
+        console.error('Failed to attach CV to Trello card:', attachError);
+      }
+    }
+
+    return card;
+  } catch (error) {
+    // Don't throw - Trello failure shouldn't break the application submission
+    console.error('Failed to create Trello card:', error);
+    return null;
+  }
+}
 
 export async function onRequestOptions() {
   return new Response(null, {
@@ -94,6 +188,21 @@ export async function onRequestPost(context) {
         }
       );
     }
+
+    // Create Trello card with CV attachment (non-blocking - don't fail if Trello is unavailable)
+    createTrelloCard(
+      {
+        name,
+        email,
+        message,
+        cvFileName: cvFile.name,
+        cvBase64: base64File,
+      },
+      env
+    ).catch(err => {
+      // Already logged in createTrelloCard, just ensure it doesn't throw
+      console.error('Trello card creation failed silently:', err);
+    });
 
     return new Response(
       JSON.stringify({ success: true, message: 'Ansökan har skickats!' }),
