@@ -208,6 +208,46 @@ main {
     line-height: 1.4; /* 140% */
 }
 
+.hero-content {
+    max-width: 800px;
+    margin: 0 auto 3rem;
+    color: var(--soft-white);
+}
+
+.hero-content h2 {
+    font-size: 3rem;
+    font-weight: 700; /* Lora Bold */
+    font-family: 'Lora', serif;
+    line-height: 1.2;
+    color: var(--soft-white);
+    margin-bottom: 1.5rem;
+    letter-spacing: -0.5px;
+}
+
+.hero-content p:first-of-type {
+    font-size: 1.5rem;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 500; /* Montserrat Medium */
+    color: var(--soft-white);
+    opacity: 0.95;
+    margin-bottom: 1.5rem;
+    line-height: 1.5;
+}
+
+.hero-content p:not(:first-of-type) {
+    font-size: 1.125rem;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 400; /* Montserrat Regular */
+    color: var(--soft-white);
+    opacity: 0.85;
+    margin-bottom: 1rem;
+    line-height: 1.6;
+}
+
+.hero-content p:last-of-type {
+    margin-bottom: 0;
+}
+
 .hero .cta-button {
     display: inline-block;
     padding: 1rem 2.5rem;
@@ -229,6 +269,22 @@ main {
 /* Sections */
 .section {
     padding: 5rem 2rem;
+}
+
+/* Reduce top padding when section is used within a page */
+.page-container .section {
+    padding-top: 0.5rem;
+    padding-bottom: 3rem;
+}
+
+.page-container .section h2 {
+    margin-bottom: 1rem;
+}
+
+/* Reduce bottom margin on paragraphs and highlights before sections */
+.page-container p + .section,
+.page-container .highlight + .section {
+    margin-top: 0;
 }
 
 .section-light {
@@ -646,16 +702,43 @@ main {
 
 /* Highlight/Quote */
 .highlight {
-    background-color: var(--warm-coral);
-    color: var(--white);
+    background-color: #EBC83B;
+    color: var(--deep-indigo);
     padding: 2rem;
     border-radius: 8px;
     margin: 2rem 0;
+}
+
+/* Reduce bottom margin on highlight when followed by section in page */
+.page-container .highlight + .section {
+    margin-top: 0;
+}
+
+.page-container .highlight {
+    margin-bottom: 1rem;
     font-size: 1.25rem;
     font-family: 'Lora', serif; /* Lora for quotes */
     font-weight: 400; /* Lora Regular */
     line-height: 1.2; /* 120% */
     font-style: italic;
+}
+
+.highlight a,
+.highlight a:link,
+.highlight a:visited,
+.highlight a:active,
+.highlight a[href^="mailto:"] {
+    color: var(--deep-indigo) !important;
+    text-decoration: none !important;
+    border-bottom: none !important;
+    font-weight: 500;
+}
+
+.highlight a:hover,
+.highlight a[href^="mailto:"]:hover {
+    color: var(--warm-coral) !important;
+    text-decoration: none !important;
+    border-bottom: none !important;
 }
 
 /* Innovation Box */
@@ -930,6 +1013,18 @@ main {
     
     .hero .subtitle {
         font-size: 1.25rem;
+    }
+    
+    .hero-content h2 {
+        font-size: 2rem;
+    }
+    
+    .hero-content p:first-of-type {
+        font-size: 1.25rem;
+    }
+    
+    .hero-content p:not(:first-of-type) {
+        font-size: 1rem;
     }
     
     .section {

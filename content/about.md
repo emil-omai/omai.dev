@@ -2,41 +2,25 @@
 title: "Om oss"
 ---
 
-Vi är OMAI, ett team dedikerat till att skapa lösningar som balanserar teknisk excellens med mänsklig värme.
-
-## Vår filosofi
+## Därför väljer företag OMAI
 
 {{< highlight >}}
-Vår färgpalett är designad för att kännas modern, varm och mänsklig – med teknisk precision och mjuka kontraster.
+För att vi ser både tekniken och människan bakom den.
 {{< /highlight >}}
 
-Vi tror att bra design kommer från att förstå både de tekniska kraven och de mänskliga behoven bakom varje projekt. Vår approach kombinerar:
+Vi tror på människocentrerade AI – intelligenta lösningar som byggs på insikt, empati och affärsvärde. Vi hjälper dig att hitta rätt balans mellan innovation och verklighet, mellan möjligheter och ansvar. Oavsett var du står på din AI-resa möter vi dig där, och tar nästa steg tillsammans.
 
-- **Deep Indigo** – Den stabila, professionella grunden som ger tyngd och förtroende till allt vi gör
-- **Soft White** – De lätta, balanserade utrymmena som skapar klarhet och andrum
-- **Warm Coral** – Energin och mänskligheten som ger värme till våra interaktioner
-- **Bright Yellow** – Innovationen och nyfikenheten som driver oss framåt
-- **Calm Blue** – Balansen och harmonin som binder ihop allt
+{{< features-section title="Nyckelvärden" >}}
+{{< feature-card icon="💙" iconColor="coral" title="Mänskligt" >}}
+Vi börjar med förståelse, inte kod.
+{{< /feature-card >}}
 
-## Vår approach
+{{< feature-card icon="🎯" iconColor="blue" title="Strategiskt" >}}
+Vi kopplar tekniken till din affär.
+{{< /feature-card >}}
 
-{{< innovation >}}
-### Innovation genom nyfikenhet
-
-Vi använder Bright Yellow för att signalera vår framåtblickande approach. Varje projekt är en möjlighet att utforska nya möjligheter och upptäcka innovativa lösningar.
-{{< /innovation >}}
-
-Vi följer ett enkelt princip: använd max två accentfärger per layout, och låt dem komplettera varandra snarare än att tävla. Detta skapar visuell harmoni samtidigt som vi behåller energin och värmen som definierar vårt varumärke.
-
-{{< calm >}}
-### Balanserade lösningar
-
-Calm Blue hjälper oss skapa balanserade kompositioner. Den fungerar som en neutral bro mellan varmare toner, vilket säkerställer att våra designs känns harmoniska och kompletta.
-{{< /calm >}}
-
-## Teknisk precision
-
-I kärnan av allt vi gör finns ett engagemang för teknisk excellens. Deep Indigo representerar denna grund – stabil, professionell och precis. Men vi glömmer aldrig att bakom varje teknisk lösning finns det riktiga människor med riktiga behov.
-
-Därför balanserar vi vår tekniska precision med värmen från Warm Coral, och skapar lösningar som inte bara är funktionella, utan genuint mänskliga.
+{{< feature-card icon="🤝" iconColor="yellow" title="Tillsammans" >}}
+Vi bygger kunskap – och ger dig verktygen.
+{{< /feature-card >}}
+{{< /features-section >}}
 

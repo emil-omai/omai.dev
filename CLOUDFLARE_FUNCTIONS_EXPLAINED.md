@@ -201,6 +201,12 @@ You can verify functions are detected by:
 - Check that exports are named correctly
 - Verify the directory structure matches URL structure
 
+**Logs**
+View the logs from the current deployment by using wrangler
+   ```bash
+   wrangler pages deployment tail
+   ```
+
 ## Summary
 
 Cloudflare Pages Functions work through **convention over configuration**:

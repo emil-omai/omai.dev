@@ -1,8 +1,13 @@
 ---
-title: "Kontakt"
+title: "Kontakta oss"
 ---
 
-Kontakta oss. Vi skulle gärna höra från dig.
+## Låt oss prata AI – mänskligt, enkelt och konkret.
+
+Är du nyfiken på hur AI kan användas i ditt företag, eller har du redan testat men svårt att se affärsnyttan? Vi hör dig.
+
+Berätta var du står – vi möter dig där.
+Omai hjälper dig ta nästa steg, oavsett om det handlar om att förstå, utforska eller implementera AI.
 
 ## Skicka ett meddelande
 
@@ -16,7 +21,8 @@ Du kan också nå oss via:
 - **LinkedIn**: [Följ oss på LinkedIn](https://www.linkedin.com/company/omaidev/about/)
 - **Instagram**: [Följ oss på Instagram](https://www.instagram.com/omai.dev/)
 
+<!-- 
 {{< highlight >}}
 Vi är alltid öppna för nya samarbeten och intressanta projekt. Tveka inte att höra av dig!
 {{< /highlight >}}
-
+-->
