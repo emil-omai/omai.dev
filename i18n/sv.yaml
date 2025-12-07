@@ -2,7 +2,7 @@
 nav_home: "Hem"
 nav_about: "Om oss"
 nav_contact: "Kontakt"
-nav_posts: "Inlägg"
+nav_posts: "Om AI"
 
 # Footer
 footer_contact: "Kontakt"
@@ -10,7 +10,7 @@ footer_links: "Länkar"
 footer_cookie_policy: "Cookiepolicy"
 
 # Posts
-posts_title: "Inlägg"
+posts_title: "Om AI"
 post_read_more: "Läs mer"
-post_back_to_posts: "Tillbaka till inlägg"
+post_back_to_posts: "Tillbaka till Om AI"
 post_published: "Publicerad"

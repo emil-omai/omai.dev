@@ -1,0 +1,72 @@
+<div id="cookie-policy-overlay" class="cookie-policy-overlay" style="display: none;">
+    <div class="cookie-policy-popup">
+        <button class="cookie-policy-close" aria-label="Stäng cookiepolicy" onclick="closeCookiePolicy()">×</button>
+        <div class="cookie-policy-content">
+            <h1>Cookiepolicy</h1>
+            
+            <h2>Vad är cookies?</h2>
+            <p>Cookies är små textfiler som sparas på din enhet (dator, mobil, surfplatta) när du besöker webbplatser. De används vanligtvis för att komma ihåg dina val, analysera trafik eller ge personliga funktioner.</p>
+            
+            <h2>Våra cookies</h2>
+            <p>Vi använder inga cookies på denna webbplats. Nedan ser du de tekniker vi använder som inte sätter cookies:</p>
+            <ul>
+                <li><strong>Google Fonts</strong> (fonts.googleapis.com & fonts.gstatic.com) – leverans av typsnitt. Google Fonts sätter inga cookies för detta ändamål.</li>
+                <li><strong>Cloudflare Web Analytics</strong> – cookieless, GDPR-vänlig trafikmätning utan cookies eller lokal lagring.</li>
+                <li><strong>Egna JavaScript-filer</strong> – vi sätter inga cookies i våra egna skript.</li>
+            </ul>
+            
+            <h2>Do-Not-Track & integritet</h2>
+            <p>Vi respekterar dina webbläsares Do-Not-Track-inställningar och samlar endast in aggregerad och anonym statistik via Cloudflare Web Analytics.</p>
+            
+            <h2>Hantera cookies</h2>
+            <p>Eftersom vi inte använder några cookies behöver du inte ändra några inställningar här. Om du vill kan du dock i din webbläsare blockera eller ta bort cookies generellt. Detta påverkar inte vår webbplats, men kan påverka andra sajter du besöker.</p>
+            
+            <h2>Ändringar i policyn</h2>
+            <p>Om vi skulle börja använda cookies i framtiden kommer vi att uppdatera denna policy och informera tydligt om vilka cookies som används och varför.</p>
+            
+            <h2>Kontakta oss</h2>
+            <p>Har du frågor om denna cookiepolicy? Kontakta oss gärna på <a href="mailto:hej@omai.dev">hej@omai.dev</a>.</p>
+        </div>
+    </div>
+</div>
+
+<script>
+    function openCookiePolicy() {
+        const overlay = document.getElementById('cookie-policy-overlay');
+        if (overlay) {
+            overlay.style.display = 'flex';
+            document.body.style.overflow = 'hidden';
+        }
+    }
+    
+    function closeCookiePolicy() {
+        const overlay = document.getElementById('cookie-policy-overlay');
+        if (overlay) {
+            overlay.style.display = 'none';
+            document.body.style.overflow = '';
+        }
+    }
+    
+    // Close on overlay click (outside popup)
+    document.addEventListener('DOMContentLoaded', function() {
+        const overlay = document.getElementById('cookie-policy-overlay');
+        if (overlay) {
+            overlay.addEventListener('click', function(e) {
+                if (e.target === overlay) {
+                    closeCookiePolicy();
+                }
+            });
+        }
+        
+        // Close on Escape key
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                const overlay = document.getElementById('cookie-policy-overlay');
+                if (overlay && overlay.style.display === 'flex') {
+                    closeCookiePolicy();
+                }
+            }
+        });
+    });
+</script>
+

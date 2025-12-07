@@ -7,9 +7,7 @@ ingress: "Kort ingress som sammanfattar artikeln. Denna visas i listan och i bö
 
 **Filenamn:** Använd formatet `YYMMDD-Titel-Här.md` (t.ex. `251129-Omai-landade-stort-projekt.md`)
 
-**Slug:** Lägg till `slug: "din-rubrik-har"` i front matter för att kontrollera URL:en. URL:en blir `/posts/din-rubrik-har` (lowercase, inga datum).
-
-**Översättningar:** För att länkar mellan språkversioner ska fungera, måste filnamnet vara identiskt i både `content/posts/` och `content/en/posts/`. Använd samma slug i båda versionerna.
+**Slug:** Lägg till `slug: "din-rubrik-har"` i front matter för att kontrollera URL:en. URL:en blir `/om-ai/din-rubrik-har` (lowercase, inga datum).
 
 **Assets:** Placera bilder och andra assets i `static/posts/YYMMDD/` (t.ex. `static/posts/251129/`) för att matcha filnamnets datum.
 

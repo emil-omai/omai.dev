@@ -1,33 +1,15 @@
 baseURL = '/'
-defaultContentLanguage = 'sv'
-defaultContentLanguageInSubdir = true
-disableDefaultLanguageRedirect = false
+
+title = "Omai"
+
+[params]
+  description = "Omai's hemsida"
+  author = "Omai"
 
 disableKinds = ['taxonomy']
 
 [permalinks]
-  posts = '/posts/:slug/'
-
-[languages]
-  [languages.sv]
-    contentDir = 'content/sv'
-    disabled = false
-    languageName = "Svenska"
-    weight = 1
-    title = "Omai"
-    [languages.sv.params]
-      description = "Omai's hemsida"
-      author = "Omai"
-
-  [languages.en]
-    contentDir = 'content/en'
-    disabled = false
-    languageName = "English"
-    weight = 2
-    title = "Omai"
-    [languages.en.params]
-      description = "Omai's homepage"
-      author = "Omai"
+  om-ai = '/om-ai/:slug/'
 
 [markup]
   [markup.goldmark]

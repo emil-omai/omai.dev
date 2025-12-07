@@ -1,0 +1,5 @@
+{{ $months := slice "januari" "februari" "mars" "april" "maj" "juni" "juli" "augusti" "september" "oktober" "november" "december" }}
+{{ $monthIndex := sub (int (.Format "1")) 1 }}
+{{ $monthName := index $months $monthIndex }}
+{{ printf "%s %s %s" (.Format "2") $monthName (.Format "2006") }}
+

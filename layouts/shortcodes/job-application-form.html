@@ -1,0 +1,100 @@
+<div class="contact-form">
+    <form id="job-application-form" enctype="multipart/form-data">
+        <div id="job-form-message" class="form-message" style="display: none;"></div>
+        <div class="form-group">
+            <label for="job-name">Namn</label>
+            <input type="text" id="job-name" name="name" required>
+        </div>
+        <div class="form-group">
+            <label for="job-email">E-post</label>
+            <input type="email" id="job-email" name="email" required>
+        </div>
+        <div class="form-group">
+            <label for="job-message">Meddelande</label>
+            <textarea id="job-message" name="message" required></textarea>
+        </div>
+        <div class="form-group">
+            <label for="job-cv">CV (PDF, DOC, DOCX - max 10MB)</label>
+            <input type="file" id="job-cv" name="cv" accept=".pdf,.doc,.docx" required>
+            <small class="file-hint">Ladda upp din CV som PDF, DOC eller DOCX</small>
+            <div id="file-error" class="file-error" style="display: none; color: var(--warm-coral); margin-top: 0.5rem; font-size: 0.875rem;"></div>
+        </div>
+        <button type="submit" class="btn-primary" id="job-submit-btn">Skicka ansökan</button>
+    </form>
+</div>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const jobForm = document.getElementById('job-application-form');
+    const messageDiv = document.getElementById('job-form-message');
+    const submitBtn = document.getElementById('job-submit-btn');
+    const fileInput = document.getElementById('job-cv');
+    const fileError = document.getElementById('file-error');
+    const maxFileSize = 10 * 1024 * 1024; // 10MB in bytes
+    
+    // File validation
+    if (fileInput && fileError) {
+        fileInput.addEventListener('change', function(e) {
+            const file = e.target.files[0];
+            if (file) {
+                if (file.size > maxFileSize) {
+                    fileError.textContent = 'Filen är för stor. Maximal storlek är 10MB.';
+                    fileError.style.display = 'block';
+                    fileInput.value = '';
+                } else {
+                    fileError.style.display = 'none';
+                }
+            }
+        });
+    }
+    
+    if (jobForm) {
+        jobForm.addEventListener('submit', async function(e) {
+            e.preventDefault();
+            
+            const file = fileInput.files[0];
+            if (file && file.size > maxFileSize) {
+                fileError.textContent = 'Filen är för stor. Maximal storlek är 10MB.';
+                fileError.style.display = 'block';
+                return false;
+            }
+            
+            const formData = new FormData(jobForm);
+            const originalText = submitBtn.textContent;
+            
+            // Show loading state
+            submitBtn.disabled = true;
+            submitBtn.textContent = 'Skickar...';
+            messageDiv.style.display = 'none';
+            
+            try {
+                const response = await fetch('/api/job-application', {
+                    method: 'POST',
+                    body: formData,
+                });
+                
+                const result = await response.json();
+                
+                if (response.ok && result.success) {
+                    messageDiv.className = 'form-message form-message-success';
+                    messageDiv.textContent = result.message || 'Ansökan har skickats!';
+                    messageDiv.style.display = 'block';
+                    jobForm.reset();
+                } else {
+                    messageDiv.className = 'form-message form-message-error';
+                    messageDiv.textContent = result.error || 'Ett fel uppstod. Försök igen senare.';
+                    messageDiv.style.display = 'block';
+                }
+            } catch (error) {
+                messageDiv.className = 'form-message form-message-error';
+                messageDiv.textContent = 'Ett fel uppstod. Försök igen senare.';
+                messageDiv.style.display = 'block';
+            } finally {
+                submitBtn.disabled = false;
+                submitBtn.textContent = originalText;
+            }
+        });
+    }
+});
+</script>
+

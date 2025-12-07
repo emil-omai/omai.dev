@@ -1,14 +1,12 @@
 {{ define "main" }}
-{{ $currentLang := .Language.Lang }}
-{{ $isEnglish := or (eq $currentLang "en") (hasPrefix .RelPermalink "/en/") }}
 <article class="post-page">
     <div class="post-header">
         <div class="post-meta">
             {{ with .Date }}
-            <time datetime="{{ .Format "2006-01-02" }}">{{ .Format "2 January 2006" }}</time>
+            <time datetime="{{ .Format "2006-01-02" }}">{{ partial "swedish-date.html" . }}</time>
             <span class="post-separator">•</span>
             {{ end }}
-            <span>{{ if $isEnglish }}Published{{ else }}Publicerad{{ end }}</span>
+            <span>Publicerad</span>
         </div>
         <h1 class="post-title">{{ .Title }}</h1>
         {{ if .Params.ingress }}
@@ -21,8 +19,7 @@
     </div>
     
     <div class="post-footer">
-        <a href="{{ if $isEnglish }}/en/posts{{ else }}/posts{{ end }}" class="post-back-link">{{ if $isEnglish }}Back to posts{{ else }}Tillbaka till inlägg{{ end }}</a>
+        <a href="/om-ai/" class="post-back-link">Tillbaka till Om AI</a>
     </div>
 </article>
 {{ end }}
-

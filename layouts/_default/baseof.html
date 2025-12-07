@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="{{ .Site.LanguageCode }}">
+<html lang="sv">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -19,9 +19,7 @@
 <body>
     <nav>
         <div class="nav-container">
-            {{ $currentLang := .Language.Lang }}
-            {{ $isEnglish := or (eq $currentLang "en") (hasPrefix .RelPermalink "/en/") }}
-            <a href="{{ if $isEnglish }}/en/{{ else }}/sv/{{ end }}" class="logo">
+            <a href="/" class="logo">
                 <img src="{{ "images/logos/omai-logo-bright-yellow.png" | relURL }}" alt="{{ .Site.Title }}" class="logo-img">
             </a>
             <button class="hamburger" aria-label="Toggle menu" aria-expanded="false">
@@ -30,68 +28,11 @@
                 <span></span>
             </button>
             <ul class="nav-menu">
-                {{ $currentLang := .Language.Lang }}
-                {{ $isEnglish := or (eq $currentLang "en") (hasPrefix .RelPermalink "/en/") }}
-                {{ $lang := cond $isEnglish "en" "sv" }}
-                <li><a href="{{ if $isEnglish }}/en/{{ else }}/sv/{{ end }}" {{ if .IsHome }}class="active"{{ end }}>{{ if $isEnglish }}Home{{ else }}Hem{{ end }}</a></li>
-                <li><a href="{{ if $isEnglish }}/en/about/{{ else }}/sv/about/{{ end }}" {{ if or (eq .Title "About") (eq .Title "Om oss") }}class="active"{{ end }}>{{ if $isEnglish }}About{{ else }}Om oss{{ end }}</a></li>
-                <li><a href="{{ if $isEnglish }}/en/posts/{{ else }}/sv/posts/{{ end }}" {{ if or (eq .Section "posts") (hasPrefix .RelPermalink "/sv/posts/") (hasPrefix .RelPermalink "/en/posts/") }}class="active"{{ end }}>{{ if $isEnglish }}Posts{{ else }}Inlägg{{ end }}</a></li>
-                <li><a href="{{ if $isEnglish }}/en/contact/{{ else }}/sv/contact/{{ end }}" {{ if or (eq .Title "Contact") (eq .Title "Kontakt") }}class="active"{{ end }}>{{ if $isEnglish }}Contact{{ else }}Kontakt{{ end }}</a></li>
-                <li class="language-switcher">
-                    {{ $currentLang := .Language.Lang }}
-                    {{ $isEnglish := or (eq $currentLang "en") (hasPrefix .RelPermalink "/en/") }}
-                    {{ range $.Site.Languages }}
-                        {{ $langIsEnglish := eq .Lang "en" }}
-                        {{ $isCurrentLang := false }}
-                        {{ if and $langIsEnglish $isEnglish }}
-                            {{ $isCurrentLang = true }}
-                        {{ else if and (not $langIsEnglish) (not $isEnglish) }}
-                            {{ $isCurrentLang = true }}
-                        {{ end }}
-                        {{ if $isCurrentLang }}
-                            <span class="current-lang">
-                                {{ if eq .Lang "sv" }}🇸🇪{{ else }}🇬🇧{{ end }}
-                            </span>
-                        {{ else }}
-                            {{ $targetLang := .Lang }}
-                            {{ $translation := false }}
-                            {{ range $.Translations }}
-                                {{ if eq .Lang $targetLang }}
-                                    {{ $translation = . }}
-                                {{ end }}
-                            {{ end }}
-                            {{ if $translation }}
-                                <a href="{{ $translation.RelPermalink }}" title="{{ .LanguageName }}">
-                                    {{ if eq $targetLang "sv" }}🇸🇪{{ else }}🇬🇧{{ end }}
-                                </a>
-                            {{ else }}
-                                {{/* Build translation URL manually based on current page path */}}
-                                {{ $currentPath := $.RelPermalink }}
-                                {{ $translationPath := "" }}
-                                {{ if eq $targetLang "sv" }}
-                                    {{/* Switch to Swedish - remove /en/ prefix and add /sv/ */}}
-                                    {{ $translationPath = replace $currentPath "/en/" "/sv/" }}
-                                    {{ if eq $translationPath $currentPath }}
-                                        {{/* Already Swedish, or no /en/ prefix - go to Swedish home */}}
-                                        {{ $translationPath = "/sv/" }}
-                                    {{ end }}
-                                    <a href="{{ $translationPath }}" title="Svenska">🇸🇪</a>
-                                {{ else }}
-                                    {{/* Switch to English - add /en/ prefix if not present */}}
-                                    {{ if hasPrefix $currentPath "/en/" }}
-                                        {{ $translationPath = $currentPath }}
-                                    {{ else }}
-                                        {{ $translationPath = printf "/en%s" $currentPath }}
-                                    {{ end }}
-                                    {{ if eq $translationPath "/en/" }}
-                                        {{ $translationPath = "/en/" }}
-                                    {{ end }}
-                                    <a href="{{ $translationPath }}" title="English">🇬🇧</a>
-                                {{ end }}
-                            {{ end }}
-                        {{ end }}
-                    {{ end }}
-                </li>
+                <li><a href="/" {{ if .IsHome }}class="active"{{ end }}>Hem</a></li>
+                <li><a href="/about/" {{ if eq .Title "Om oss" }}class="active"{{ end }}>Om oss</a></li>
+                <li><a href="/om-ai/" {{ if eq .Section "om-ai" }}class="active"{{ end }}>Om AI</a></li>
+                <li><a href="/jobba-pa-omai/" {{ if eq .Title "Jobba på OMAI" }}class="active"{{ end }}>Jobba på OMAI</a></li>
+                <li><a href="/contact/" {{ if eq .Title "Kontakt" }}class="active"{{ end }}>Kontakt</a></li>
             </ul>
         </div>
     </nav>
@@ -99,6 +40,7 @@
         {{ block "main" . }}{{ end }}
     </main>
     {{ partial "footer.html" . }}
+    {{ partial "cookie-policy-popup.html" . }}
     <script>
         // Hamburger menu toggle
         document.addEventListener('DOMContentLoaded', function() {
@@ -157,6 +99,39 @@
                 });
             }
         });
+        
+        // Job application form file validation
+        const jobForm = document.getElementById('job-application-form');
+        const jobFileInput = document.getElementById('job-cv');
+        const jobFileError = document.getElementById('file-error');
+        const maxFileSize = 10 * 1024 * 1024; // 10MB in bytes
+        
+        if (jobFileInput && jobFileError) {
+            jobFileInput.addEventListener('change', function(e) {
+                const file = e.target.files[0];
+                if (file) {
+                    if (file.size > maxFileSize) {
+                        jobFileError.textContent = 'Filen är för stor. Maximal storlek är 10MB.';
+                        jobFileError.style.display = 'block';
+                        jobFileInput.value = '';
+                    } else {
+                        jobFileError.style.display = 'none';
+                    }
+                }
+            });
+        }
+        
+        if (jobForm && jobFileInput && jobFileError) {
+            jobForm.addEventListener('submit', function(e) {
+                const file = jobFileInput.files[0];
+                if (file && file.size > maxFileSize) {
+                    e.preventDefault();
+                    jobFileError.textContent = 'Filen är för stor. Maximal storlek är 10MB.';
+                    jobFileError.style.display = 'block';
+                    return false;
+                }
+            });
+        }
     </script>
 </body>
 </html>
