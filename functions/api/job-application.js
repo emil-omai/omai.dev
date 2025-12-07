@@ -36,16 +36,36 @@ async function createTrelloCard({ name, email, message, cvFileName, cvBase64 }, 
       token: env.TRELLO_SECRET,
     };
 
-    console.log('Trello card data:', cardData);
-    const trelloResponse = await fetch('https://api.trello.com/1/cards', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify(cardData),
+    // Trello API requires key and token as query parameters, not in the body
+    const cardPayload = {
+      name: cardData.name,
+      desc: cardData.desc,
+      idList: cardData.idList,
+    };
+
+    const queryParams = new URLSearchParams({
+      key: env.TRELLO_API_KEY,
+      token: env.TRELLO_SECRET,
     });
 
-    console.log('Trello response:', trelloResponse);
+    const trelloUrl = `https://api.trello.com/1/cards?${queryParams.toString()}`;
+    console.log('Trello card data:', cardPayload);
+    console.log('About to call Trello API:', trelloUrl);
+    
+    let trelloResponse;
+    try {
+      trelloResponse = await fetch(trelloUrl, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(cardPayload),
+      });
+      console.log('Trello response received:', trelloResponse.status, trelloResponse.statusText);
+    } catch (fetchError) {
+      console.error('Fetch error when calling Trello API:', fetchError);
+      throw fetchError;
+    }
 
     if (!trelloResponse.ok) {
       const errorText = await trelloResponse.text();
@@ -195,8 +215,9 @@ export async function onRequestPost(context) {
     }
 
     // Create Trello card with CV attachment (non-blocking - don't fail if Trello is unavailable)
+    // Use context.waitUntil to ensure the async operation completes
     console.log('Creating Trello card');
-    createTrelloCard(
+    const trelloPromise = createTrelloCard(
       {
         name,
         email,
@@ -209,6 +230,11 @@ export async function onRequestPost(context) {
       // Already logged in createTrelloCard, just ensure it doesn't throw
       console.error('Trello card creation failed silently:', err);
     });
+    
+    // Ensure Trello operation completes even after response is sent
+    if (context.waitUntil) {
+      context.waitUntil(trelloPromise);
+    }
 
     return new Response(
       JSON.stringify({ success: true, message: 'Ansökan har skickats!' }),
