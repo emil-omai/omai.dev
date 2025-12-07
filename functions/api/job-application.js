@@ -4,7 +4,8 @@
  * - EMAIL_TO: The email address to send applications to
  * - RESEND_API_KEY: Your Resend API key (get from https://resend.com)
  * - TRELLO_API_KEY: Your Trello API key (get from https://trello.com/app-key)
- * - TRELLO_SECRET: Your Trello API token (generate from https://trello.com/app-key)
+ * - TRELLO_TOKEN: Your Trello API token (generate using the authorization URL:
+ *   https://trello.com/1/authorize?expiration=never&scope=read,write&response_type=token&name=YourAppName&key=YOUR_API_KEY)
  * - TRELLO_LIST_ID: The ID of the Trello list where cards should be created
  *   (Find this by opening a card in the list and adding .json to the URL)
  */
@@ -21,8 +22,11 @@
  */
 async function createTrelloCard({ name, email, message, cvFileName, cvBase64 }, env) {
   // Check if Trello credentials are configured
-  if (!env.TRELLO_API_KEY || !env.TRELLO_SECRET || !env.TRELLO_LIST_ID) {
+  // Support TRELLO_TOKEN (preferred) or TRELLO_SECRET for backwards compatibility
+  const trelloToken = env.TRELLO_TOKEN || env.TRELLO_SECRET;
+  if (!env.TRELLO_API_KEY || !trelloToken || !env.TRELLO_LIST_ID) {
     console.warn('Trello credentials not fully configured, skipping card creation');
+    console.warn('Required: TRELLO_API_KEY, TRELLO_TOKEN, TRELLO_LIST_ID');
     return null;
   }
 
@@ -45,7 +49,7 @@ async function createTrelloCard({ name, email, message, cvFileName, cvBase64 }, 
 
     const queryParams = new URLSearchParams({
       key: env.TRELLO_API_KEY,
-      token: env.TRELLO_SECRET,
+      token: trelloToken,
     });
 
     const trelloUrl = `https://api.trello.com/1/cards?${queryParams.toString()}`;
@@ -91,7 +95,7 @@ async function createTrelloCard({ name, email, message, cvFileName, cvBase64 }, 
         const formData = new FormData();
         formData.append('file', blob, cvFileName);
         formData.append('key', env.TRELLO_API_KEY);
-        formData.append('token', env.TRELLO_SECRET);
+        formData.append('token', trelloToken);
 
         const attachmentResponse = await fetch(
           `https://api.trello.com/1/cards/${card.id}/attachments`,
