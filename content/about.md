@@ -15,7 +15,7 @@ Vi tror på människocentrerade AI – intelligenta lösningar som byggs på ins
 Vi börjar med förståelse, inte kod.
 {{< /feature-card >}}
 
-{{< feature-card image="images/light-bulb.png" iconColor="blue" title="Strategiskt" >}}
+{{< feature-card image="images/star-hand-drawn.png" iconColor="blue" title="Strategiskt" >}}
 Vi kopplar tekniken till din affär.
 {{< /feature-card >}}
 
