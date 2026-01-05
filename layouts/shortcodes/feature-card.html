@@ -1,7 +1,12 @@
-{{ $icon := .Get "icon" | default "💡" }}
+{{ $icon := .Get "icon" }}
+{{ $image := .Get "image" }}
 {{ $iconColor := .Get "iconColor" | default "coral" }}
 <div class="feature-card">
-    {{ if $icon }}
+    {{ if $image }}
+    <div class="feature-icon {{ $iconColor }} feature-icon-image">
+        <img src="{{ $image | relURL }}" alt="{{ .Get "title" }}">
+    </div>
+    {{ else if $icon }}
     <div class="feature-icon {{ $iconColor }}">{{ $icon }}</div>
     {{ end }}
     <h3>{{ .Get "title" }}</h3>

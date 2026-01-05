@@ -5,13 +5,13 @@ title: "Hem"
 {{< hero >}}
 ## Vi gör AI mänskligt.
 
-**Omai hjälper företag att förstå, använda och växa med AI – på ett sätt som känns relevant, tryggt och mänskligt.**
+**OMAI är ett konsultbolag som hjälper företag att förstå, använda och växa med AI – på ett sätt som känns relevant, tryggt och mänskligt.**
 
 AI handlar inte om att ersätta människor, utan om att förstärka dem. Vi möter dig där du är – oavsett om du är nyfiken på vad AI kan göra för ditt företag, eller redan har testat men saknar tydlig affärsnytta.
 
 Vi hör dig.
 
-Omai kombinerar strategi, teknik och förståelse för människan bakom datan. Vi hjälper dig att skapa lösningar som fungerar i verkligheten – för människor, av människor.
+OMAI kombinerar strategi, teknik och förståelse för människan bakom datan. Vi hjälper dig att skapa lösningar som fungerar i verkligheten – för människor, av människor.
 {{< /hero >}}
 
 <!--
