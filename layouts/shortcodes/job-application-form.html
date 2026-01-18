@@ -19,11 +19,28 @@
             <small class="file-hint">Ladda upp din CV som PDF, DOC eller DOCX</small>
             <div id="file-error" class="file-error" style="display: none; color: var(--warm-coral); margin-top: 0.5rem; font-size: 0.875rem;"></div>
         </div>
+        <div class="form-group">
+            <div class="cf-turnstile" data-sitekey="{{ .Site.Params.turnstileSiteKey }}" data-theme="light" data-callback="onJobTurnstileSuccess"></div>
+        </div>
         <button type="submit" class="btn-primary" id="job-submit-btn">Skicka ansökan</button>
     </form>
 </div>
 
 <script>
+let jobTurnstileWidgetId = null;
+
+function onJobTurnstileSuccess(token) {
+    // Widget rendered successfully, get widget ID
+    const turnstileWidget = document.querySelector('#job-application-form .cf-turnstile');
+    if (turnstileWidget) {
+        // Turnstile sets data-widget-id after rendering
+        const widgetId = turnstileWidget.getAttribute('data-widget-id');
+        if (widgetId) {
+            jobTurnstileWidgetId = widgetId;
+        }
+    }
+}
+
 document.addEventListener('DOMContentLoaded', function() {
     const jobForm = document.getElementById('job-application-form');
     const messageDiv = document.getElementById('job-form-message');
@@ -80,6 +97,21 @@ document.addEventListener('DOMContentLoaded', function() {
                     messageDiv.textContent = result.message || 'Ansökan har skickats!';
                     messageDiv.style.display = 'block';
                     jobForm.reset();
+                    // Reset Turnstile widget
+                    if (window.turnstile) {
+                        if (jobTurnstileWidgetId !== null) {
+                            window.turnstile.reset(jobTurnstileWidgetId);
+                        } else {
+                            // Fallback: find widget and reset by container
+                            const turnstileWidget = document.querySelector('#job-application-form .cf-turnstile');
+                            if (turnstileWidget) {
+                                const widgetId = turnstileWidget.getAttribute('data-widget-id');
+                                if (widgetId) {
+                                    window.turnstile.reset(widgetId);
+                                }
+                            }
+                        }
+                    }
                 } else {
                     messageDiv.className = 'form-message form-message-error';
                     messageDiv.textContent = result.error || 'Ett fel uppstod. Försök igen senare.';

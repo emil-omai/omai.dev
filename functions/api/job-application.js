@@ -112,6 +112,35 @@ async function createTrelloCard({ name, email, message, cvFileName, cvBase64 }, 
   }
 }
 
+/**
+ * Validate Turnstile token with Cloudflare API
+ */
+async function validateTurnstileToken(token, remoteip, secretKey) {
+  if (!token) {
+    return { success: false, error: 'Missing Turnstile token' };
+  }
+
+  try {
+    const response = await fetch('https://challenges.cloudflare.com/turnstile/v0/siteverify', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        secret: secretKey,
+        response: token,
+        remoteip: remoteip,
+      }),
+    });
+
+    const result = await response.json();
+    return result;
+  } catch (error) {
+    console.error('Turnstile validation error:', error);
+    return { success: false, error: 'Failed to validate Turnstile token' };
+  }
+}
+
 export async function onRequestOptions() {
   return new Response(null, {
     headers: {
@@ -131,6 +160,44 @@ export async function onRequestPost(context) {
     const email = formData.get('email');
     const message = formData.get('message');
     const cvFile = formData.get('cv');
+    const turnstileToken = formData.get('cf-turnstile-response');
+
+    // Validate Turnstile token
+    if (!env.TURNSTILE_SECRET_KEY) {
+      console.error('TURNSTILE_SECRET_KEY not configured');
+      return new Response(
+        JSON.stringify({ error: 'Server configuration error' }),
+        { 
+          status: 500,
+          headers: { 
+            'Content-Type': 'application/json',
+            'Access-Control-Allow-Origin': '*',
+          },
+        }
+      );
+    }
+
+    const remoteip = request.headers.get('CF-Connecting-IP') || 
+                     request.headers.get('X-Forwarded-For')?.split(',')[0]?.trim();
+    
+    const turnstileResult = await validateTurnstileToken(
+      turnstileToken,
+      remoteip,
+      env.TURNSTILE_SECRET_KEY
+    );
+
+    if (!turnstileResult.success) {
+      return new Response(
+        JSON.stringify({ error: 'Verification failed. Please try again.' }),
+        { 
+          status: 400,
+          headers: { 
+            'Content-Type': 'application/json',
+            'Access-Control-Allow-Origin': '*',
+          },
+        }
+      );
+    }
 
     if (!name || !email || !message || !cvFile) {
       return new Response(

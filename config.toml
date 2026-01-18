@@ -5,6 +5,7 @@ title = "Omai"
 [params]
   description = "Omai's hemsida"
   author = "Omai"
+  turnstileSiteKey = "0x4AAAAAACNQSMXZq9WoK5m_"
 
 disableKinds = ['taxonomy']
 
