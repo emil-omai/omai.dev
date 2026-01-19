@@ -1,5 +1,7 @@
 ---
 title: "Kontakta oss"
+url: "/kontakt/"
+aliases: ["/contact/"]
 ---
 
 ## Låt oss prata AI – mänskligt, enkelt och konkret.

@@ -1,17 +1,17 @@
 ---
 title: "AI-policy: Grundtryggheten som krävs för att satsa stort"
-date: 2026-01-18
+date: 2026-01-19
 slug: "ai-policy-grundtrygghet-for-innovation"
 ingress: "Har ni en AI-policy på plats, eller råder det en tyst tveksamhet i organisationen? Utan tydliga spelregler uppstår ett glapp som dränerar organisationen på kraft."
 ---
 
 {{< post-image 
-    src="posts/20260120/OMAI-post-2026-01-20.png" 
+    src="posts/20260120/OMAI-post-2026-01-20.webp" 
     alt="OMAI Insights - AI-policy och grundtrygghet för innovation"
     description="AI-policy: Grundtryggheten som krävs för att satsa stort"
 >}}
 
-Har ni en AI-policy på plats, eller råder det en tyst tveksamhet i organisationen? 
+## Har ni en AI-policy på plats, eller råder det en tyst tveksamhet i organisationen? 
 
 Vi ser det hända gång på gång. Utan tydliga spelregler uppstår ett glapp som dränerar organisationen på kraft. Vissa medarbetare vågar inte röra AI av rädsla för att göra fel. Samtidigt finns det de som kör på egen hand med privata verktyg och omedvetet riskerar företagets data.
 
@@ -33,4 +33,4 @@ Vill ni ge er organisation mandat att börja jobba med AI tryggt och på riktigt
 
 Hör av er till oss om ni vill ha hjälp att ge er organisation mandat att börja jobba med AI tryggt!
 
-[Kontakta oss](/contact) för att diskutera hur vi kan hjälpa er att skapa en AI-policy som ger er organisation trygghet och kraft.
+[Kontakta oss](/kontakt) för att diskutera hur vi kan hjälpa er att skapa en AI-policy som ger er organisation trygghet och kraft.
