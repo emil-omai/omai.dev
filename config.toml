@@ -7,7 +7,7 @@ title = "Omai"
   author = "Omai"
   turnstileSiteKey = "0x4AAAAAACNQSMXZq9WoK5m_"
 
-disableKinds = ['taxonomy']
+disableKinds = ['taxonomy', 'term', 'taxonomyTerm']
 
 [permalinks]
   om-ai = '/om-ai/:slug/'

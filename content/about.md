@@ -1,5 +1,7 @@
 ---
 title: "Om oss"
+url: "/om-oss/"
+aliases: ["/about/"]
 ---
 
 ## Därför väljer företag OMAI
