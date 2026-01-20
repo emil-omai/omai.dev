@@ -134,5 +134,9 @@
             });
         }
     </script>
+    {{ if .Site.Params.cloudflareAnalyticsToken }}
+    <script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "{{ .Site.Params.cloudflareAnalyticsToken }}"}'></script>
+    {{ end }}
+    
 </body>
 </html>
