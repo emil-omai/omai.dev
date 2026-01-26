@@ -2,7 +2,7 @@
 title: "Ny europeisk standard för AI: Så bygger vi trygghet tillsammans"
 date: 2026-01-26
 slug: "ny-europeisk-standard-for-ai"
-ingress: "Vi pratar ofta om vad AI kan göra – men för sällan om hur vi ser till att den gör det med ansvar. Nu har Europa satt de gemensamma spelreglerna för AI-säkerhet genom den nya standarden ETSI EN 304 223. På OMAI ser vi detta som ett kvitto på att vår väg är den enda vägen framåt: AI med mänsklig mening kräver en stabil grund."
+ingress: "Vi pratar ofta om vad AI kan *göra* – men för sällan om hur vi ser till att den gör det med ansvar. Nu har Europa satt de gemensamma spelreglerna för AI-säkerhet genom den nya standarden ETSI EN 304 223. På OMAI ser vi detta som ett kvitto på att vår väg är den enda vägen framåt: AI med mänsklig mening kräver en stabil grund."
 ---
 
 {{< post-image 

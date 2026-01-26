@@ -12,7 +12,7 @@
             </div>
             <h1 class="post-title">{{ .Title }}</h1>
             {{ if .Params.ingress }}
-            <p class="post-ingress">{{ .Params.ingress }}</p>
+            <p class="post-ingress">{{ .Params.ingress | .RenderString }}</p>
             {{ end }}
         </div>
         

@@ -22,7 +22,7 @@
                     <a href="{{ .RelPermalink }}">{{ .Title }}</a>
                 </h2>
                 {{ if .Params.ingress }}
-                <p class="post-card-ingress">{{ .Params.ingress }}</p>
+                <p class="post-card-ingress">{{ .Params.ingress | .RenderString }}</p>
                 {{ end }}
                 <a href="{{ .RelPermalink }}" class="post-card-link">Läs mer →</a>
             </article>
