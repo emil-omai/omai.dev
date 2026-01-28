@@ -1,78 +1,42 @@
 ---
-title: "Case: OMAI utvecklar AI agenter"
+title: "Case: Strategiskt ramverk för ansvarsfull AI inom rekrytering"
 date: 2026-01-28
-slug: "omai-utvecklar-ai-agenter"
-ingress: "Hur OMAI tillsammans med kunden designade, tränade och satte en AI‑agent i produktion för att avlasta supporten och skapa nya insikter."
+slug: "strategiskt-ramverk-for-ansvarsfull-ai-inom-rekrytering"
+ingress: "**Bakgrund: Från experiment till etablerad struktur.**  
+
+Som specialister inom nischad rekrytering identifierade WePartner Supply Chain tidigt möjligheterna med AI för att effektivisera sina arbetsflöden. Utmaningen var att gå från enskilda medarbetares testande till en samordnad och trygg företagsstrategi. De behövde säkerställa att tekniken användes på ett sätt som skyddade både kandidaternas integritet och företagets goda rykte."
 ---
 
-## Bakgrund
+## Utmaningen: Att navigera i en reglerad verklighet
 
-En snabbväxande digital tjänst hade en kundsupport som redan gick på högvarv. Teamet lade mycket tid på att svara på återkommande frågor, samtidigt som ledningen ville förstå *varför* kunder hörde av sig – inte bara hur många som gjorde det.
+Rekrytering är en av de branscher som träffas hårdast av de nya regleringarna kring AI (såsom EU AI Act), då tekniken används för att bedöma människor. WePartner Supply Chain behövde svar på kritiska frågor:
+- Hur säkerställer vi att automatiserade processer inte skapar osakliga urval?
+- Hur skyddar vi personuppgifter när vi använder externa intelligenta system?
+- Hur bibehåller vi vår personliga rådgivning när delar av innehållet skapas med stöd av AI?
 
-Bolaget hade testat traditionella chattbotar tidigare, men upplevde dem som rigida, svåra att underhålla och med låg träffsäkerhet. De ville i stället utforska moderna AI‑agenter som både kunde förstå sammanhang och anpassa sig över tid.
 
-## Målbild
+## Lösningen: Ett ramverk för "AI med mänsklig mening"
 
-Tillsammans med kunden definierade vi tre tydliga mål:
+OMAI hjälpte WePartner Supply Chain att kartlägga deras faktiska användningsområden och bygga en policy som fungerar som en praktisk vägledning i vardagen. Fokus lades på att definiera gränsdragningen mellan maskinellt stöd och mänskligt ansvar.
 
-1. **Avlasta supporten**: Minst 30 % av inkommande ärenden skulle hanteras helt automatiskt av AI‑agenten.
-2. **Förbättra kundupplevelsen**: Kortare svarstid och mer konsekventa svar, oavsett när på dygnet kunden hör av sig.
-3. **Generera insikter**: Strukturerad data kring vilka frågor som ställs, vilka svar som ges och var det uppstår friktion i kundresan.
+## Caset omfattade riktlinjer för följande användningsområden:
 
-## Lösningen – en domäntränad AI‑agent
+- **Ansvarsfull sourcing och matchning:** Strategier för hur intelligenta sökverktyg används för att hitta talanger utan att skapa exkluderande mönster.
+- **Innehållsskapande med identitet:** Riktlinjer för att ta fram annonser och kommunikation som bibehåller företagets unika tonfall.
+- **Säkra kandidatpresentationer:** Metoder för att sammanfatta komplex information inför kundmöten utan att kompromissa med sekretess eller GDPR.
+- **Transparens och förtroende:** Tydliga rutiner för hur kandidater informeras om AI-stöd i urvalsprocessen.
 
-OMAI tog fram en AI‑agent som:
+## Effekten: Trygghet i varje steg
 
-- **Förstår produktens kontext** genom att läsa in dokumentation, historiska supportärenden och FAQ‑artiklar.
-- **Anpassar svaren** efter kanal (webbchat, e‑post, internt supportverktyg) men delar samma kunskapsbas.
-- **Hanterar osäkerhet** genom att:
-  - ställa följdfrågor när information saknas,
-  - föreslå svar för mänskliga handläggare vid tveksamhet,
-  - och eskalera ärenden där mänsklig bedömning krävs.
+Samarbetet resulterade i att WePartner Supply Chain nu har ett mycket genomarbetat och tryggt ramverk för sin AI-användning. Detta ger dem en solid grund att stå på i en tid av snabb teknisk förändring.
 
-Tekniskt sett använder agenten en kombination av retrieval‑baserad kontext (för att alltid ha uppdaterad information) och styrning via noggrant utformade policies kring tonläge, ansvarstagande och dataskydd.
+- **Operationell trygghet:** Medarbetarna har fått tydliga ramar för hur de ska kvalitetssäkra sitt arbete och vilka verktyg som är godkända att använda.
+- **Ansvarsfull efterlevnad:** Bolaget har proaktivt mött kraven i de nya regleringarna för högrisksystem genom att säkerställa dokumenterad mänsklig tillsyn i alla kritiska steg.
+- **Stärkt varumärke:** Genom att sätta människan i centrum för sin AI-strategi har WePartner Supply Chain positionerat sig som en modern och ansvarsfull partner för både kunder och kandidater.
 
-## Genomförande steg för steg
+## Vill du också framtidssäkra din verksamhet med AI? 
 
-1. **Kartläggning av data**  
-   Vi inventerade vilka källor som fanns: kunskapsdatabas, tidigare tickets, produktdokumentation och interna rutiner. Fokus låg på att hitta de 20 % av frågetyperna som stod för majoriteten av volymen.
+Oavsett bransch kräver implementeringen av AI tydliga riktlinjer. 
+Vi på OMAI hjälper er att gå från osäkerhet till handlingskraft genom att bygga strategiska ramverk som förenar teknisk innovation med etik och lagstiftning.
 
-2. **Design av agentens roll och mandat**  
-   Tillsammans med supportteamet definierade vi:
-   - vilka typer av ärenden agenten får lösa själv,
-   - när den ska involvera en människa,
-   - och hur den ska kommunicera vid osäkerhet eller fel.
-
-3. **Träning och test i skarpt men begränsat läge**  
-   Agenten kopplades först in som *co‑pilot* inne i supportverktyget: den föreslog svar, men en människa klickade ”skicka”. Detta gav både träning och förtroende hos teamet.
-
-4. **Gradvis automatisering**  
-   Efter att vi nått överenskommen kvalitetsnivå (mätt både i intern bedömning och kundnöjdhet) började agenten själv besvara utvalda ärenden i webbchatten.
-
-## Resultat efter lansering
-
-Efter tre månader såg vi följande effekter:
-
-- **37 %** av alla inkommande chattärenden hanterades fullt ut av AI‑agenten.
-- **Genomsnittlig svarstid** i chatten minskade från minuter till sekunder.
-- Supportteamet rapporterade att de kunde lägga **mer tid på komplexa ärenden** och proaktiv kundvård.
-- Ledningen fick en **ny typ av rapportering**: inte bara volym per kanal, utan tematiska insikter om vad kunder faktiskt fastnar på.
-
-## Lärdomar
-
-- **Tydligt mandat är avgörande.** När teamet vet exakt vad agenten får och inte får göra blir adoptionen mycket högre.
-- **Datahygien lönar sig.** Att lägga tid tidigt på att städa och strukturera kunskapskällor gör agenten både säkrare och lättare att vidareutveckla.
-- **Människan är en del av loopen.** De bästa resultaten kom när supportteamet aktivt gav feedback till agenten och vi byggde in den feedbacken i förbättringsloopar.
-
-## Nästa steg för kunden
-
-Efter den första fasen tittar kunden nu på hur samma agentteknik kan användas:
-
-- internt, för att stötta nya medarbetare i att hitta rätt information,
-- i säljprocessen, för att snabbt svara på tekniska frågor från potentiella kunder,
-- och i produktutvecklingen, genom att analysera mönster i återkommande kundproblem.
-
----
-
-Detta case visar hur en AI‑agent kan gå från idé till verkligt värde – utan att ersätta människan, utan genom att förstärka ett befintligt team med kapacitet, konsekvens och nya insikter.
-
+[Kontakta oss](/kontakt) – Låt oss diskutera hur vi kan göra din AI-resa trygg och värdeskapande.
