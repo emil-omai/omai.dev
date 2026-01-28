@@ -2,7 +2,7 @@
     <img src="{{ .Get "src" | relURL }}" alt="{{ .Get "alt" }}" loading="lazy">
     {{ if .Get "description" }}
     <figcaption class="post-image-caption">
-        <span class="post-image-description">{{ .Get "description" }}</span>
+        <span class="post-image-description">{{ .Get "description" | .Page.RenderString }}</span>
         {{ if .Get "subtext" }}
         <span class="post-image-subtext">{{ .Get "subtext" }}</span>
         {{ end }}
