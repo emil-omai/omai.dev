@@ -4,6 +4,7 @@ on:
   push:
     branches:
       - main # Ändra detta till namnet på din huvudbranch om den heter något annat (t.ex. 'master')
+      - preview
   
   # Tillåter att du kör workflow manuellt från GitHub-gränssnittet
   workflow_dispatch:
@@ -17,14 +18,7 @@ permissions:
 jobs:
   deploy:
     runs-on: ubuntu-latest
-    
-    env:
-      BUCKET_NAME: omai-www 
-      GCP_PROJECT_NO: 590926833494 
-      GCP_PROJECT_ID: linen-compiler-479716-j7
-      WIF_POOL_ID: github-deploy-pool
-      WIF_PROVIDER_ID: github-oidc-provider # <-- Nytt Provider ID
-      WIF_SERVICE_ACCOUNT: github-hugo-deployer@linen-compiler-479716-j7.iam.gserviceaccount.com 
+    environment: ${{ github.ref == 'refs/heads/main' && 'production' || 'preview' }}
     
     permissions:
       contents: 'read'
@@ -52,6 +46,6 @@ jobs:
         with:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
-          projectName: omai-www
+          projectName: ${{ secrets.CLOUDFLARE_PROJECT_NAME }}
           directory: ./public # Path to your built static site (adjust as needed)
 
