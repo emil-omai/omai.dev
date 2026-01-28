@@ -1,6 +1,6 @@
 {{ define "main" }}
-{{ if eq .Section "om-ai" }}
-    {{/* Use the om-ai template for om-ai */}}
+{{ if or (eq .Section "om-ai") (eq .Section "case") }}
+    {{/* Use the om-ai/case template for om-ai and case sections */}}
     <article class="post-page">
         <div class="post-header">
             <div class="post-meta">
@@ -21,7 +21,11 @@
         </div>
         
         <div class="post-footer">
+            {{ if eq .Section "om-ai" }}
             <a href="/om-ai/" class="post-back-link">Tillbaka till Om AI</a>
+            {{ else if eq .Section "case" }}
+            <a href="/case/" class="post-back-link">Tillbaka till Case</a>
+            {{ end }}
         </div>
     </article>
 {{ else }}

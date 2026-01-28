@@ -9,6 +9,8 @@
             <h1>{{ .Title }}</h1>
             {{ if eq .Section "om-ai" }}
             <p class="posts-intro">Här samlar vi artiklar och nyheter om AI.</p>
+            {{ else if eq .Section "case" }}
+            <p class="posts-intro">Här samlar vi kundcase och exempel på hur OMAI utvecklar AI-agenter.</p>
             {{ end }}
         </div>
         

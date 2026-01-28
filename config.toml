@@ -12,6 +12,7 @@ disableKinds = ['taxonomy', 'term', 'taxonomyTerm']
 
 [permalinks]
   om-ai = '/om-ai/:slug/'
+  case = '/case/:slug/'
 
 [markup]
   [markup.goldmark]
