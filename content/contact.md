@@ -17,7 +17,7 @@ Omai hjälper dig ta nästa steg, oavsett om det handlar om att förstå, utfors
 
 ## Andra sätt att nå oss
 
-Du kan också nå oss via:
+Du kan också nå oss via...:
 
 <div class="contact-icons">
     <a href="mailto:hej@omai.dev" class="contact-icon" aria-label="E-post">
