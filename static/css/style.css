@@ -409,6 +409,16 @@ main {
 
 .page-container .team-member .post-image {
     margin-top: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.page-container .team-member .post-image img {
+    width: 75%;
+    max-width: 75%;
+    margin: 0 auto;
+    display: block;
 }
 
 .page-container .team-member h3:first-of-type {
