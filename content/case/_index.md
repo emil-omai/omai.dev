@@ -2,5 +2,5 @@
 title: "Case"
 ---
 
-OMAI delar här konkreta exempel på hur vi utvecklar och använder AI‑agenter tillsammans med våra kunder.
+Här samlar vi kundcase och exempel på hur OMAI hjälpt våra kunder att växa, effektivisera och ligga steget före.
 
