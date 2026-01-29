@@ -4,7 +4,7 @@ title: "Bygg framtiden med oss"
 
 Vi söker nyfikna människor som vill skapa AI som gör skillnad – på riktigt.
 
-På Omai möts teknik, strategi och mänsklig förståelse.
+På OMAI möts teknik, strategi och mänsklig förståelse.
 Vi är ett team som tror på samarbete, lärande och på att våga utmana hur saker alltid har gjorts.
 Vill du vara med och forma framtidens human-centered AI?
 

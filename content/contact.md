@@ -9,7 +9,7 @@ aliases: ["/contact/"]
 Är du nyfiken på hur AI kan användas i ditt företag, eller har du redan testat men svårt att se affärsnyttan? Vi hör dig.
 
 Berätta var du står – vi möter dig där.
-Omai hjälper dig ta nästa steg, oavsett om det handlar om att förstå, utforska eller implementera AI.
+OMAI hjälper dig ta nästa steg, oavsett om det handlar om att förstå, utforska eller implementera AI.
 
 ## Skicka ett meddelande
 
