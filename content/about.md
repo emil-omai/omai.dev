@@ -29,18 +29,18 @@ Vi bygger kunskap – och ger dig verktygen.
 ## Vi är OMAI
 
 {{< post-image 
-    src="images/about/about_kajsa.png" 
-    alt="Kajsa Grip"
-    description="Kajsa Grip"
+    src="images/about/kajsa.grip.png" 
+    alt="Kajsa Grip, CEO OMAI"
+    description=""
 >}}
 ### Kajsa Grip — Grundare & CEO
 Kajsa brinner för att sänka bruset och hitta den mänskliga nyttan i tekniken. Med lång erfarenhet inom innovation och ny teknik ser hon till att AI-resan blir begriplig, trygg och strategiskt rätt för just er verksamhet.  
 Kontakt: kajsa.grip@omai.dev
 
 {{< post-image 
-    src="images/about/about_emil.png" 
-    alt="Emil Breding"
-    description="Emil Breding"
+    src="images/about/emil.breding.png" 
+    alt="Emil Breding, CTO OMAI"
+    description=""
 >}}
 ### Emil Breding — Grundare & CTO 
 Emil är experten som får tekniken att flytta in i verkligheten. Genom att kombinera teknisk spets med ett öga för praktiska lösningar ser han till att de verktyg ni implementerar faktiskt skapar mätbar affärsnytta och ett enklare arbetsliv.   
