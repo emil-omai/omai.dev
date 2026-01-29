@@ -1,6 +1,6 @@
 ---
 title: "Case: Strategiskt ramverk för ansvarsfull AI inom rekrytering"
-date: 2026-01-28
+date: 2026-01-29
 slug: "strategiskt-ramverk-for-ansvarsfull-ai-inom-rekrytering"
 ingress: "**Bakgrund: Från experiment till etablerad struktur.**  
 
