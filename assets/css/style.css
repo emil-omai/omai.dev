@@ -474,6 +474,32 @@ main {
     opacity: 0.8;
 }
 
+/* Team grid (about page) */
+.page-container .team-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem 3rem;
+    margin-top: 1.5rem;
+}
+
+.page-container .team-member {
+    min-width: 0;
+}
+
+.page-container .team-member .post-image {
+    margin-top: 0;
+}
+
+.page-container .team-member h3:first-of-type {
+    margin-top: 1rem;
+}
+
+@media (max-width: 768px) {
+    .page-container .team-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
 /* Posts */
 .posts-page {
     max-width: 1200px;

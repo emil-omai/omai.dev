@@ -1,0 +1,11 @@
+<div class="team-member">
+<figure class="post-image">
+    <img src="{{ .Get "src" | relURL }}" alt="{{ .Get "alt" }}" loading="lazy">
+    {{ if .Get "description" }}
+    <figcaption class="post-image-caption">
+        <span class="post-image-description">{{ .Get "description" | .Page.RenderString }}</span>
+    </figcaption>
+    {{ end }}
+</figure>
+{{ .Inner | .Page.RenderString }}
+</div>
