@@ -4,7 +4,61 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{{ if .IsHome }}{{ .Site.Title }}{{ else }}{{ .Title }} - {{ .Site.Title }}{{ end }}</title>
-    <meta name="description" content="{{ if .Description }}{{ .Description }}{{ else }}{{ .Site.Params.description }}{{ end }}">
+    {{ $description := "" }}
+    {{ if .Params.ingress }}
+        {{ $descHTML := .Params.ingress | markdownify }}
+        {{ $description = $descHTML | replaceRE "<[^>]*>" "" | replaceRE "\\s+" " " | replaceRE "^\\s+|\\s+$" "" | truncate 200 }}
+    {{ end }}
+    {{ if not $description }}
+        {{ if .Description }}
+            {{ $descTrimmed := .Description | replaceRE "^\\s+|\\s+$" "" }}
+            {{ if ne $descTrimmed "" }}
+                {{ $descHTML := $descTrimmed | markdownify }}
+                {{ $description = $descHTML | replaceRE "<[^>]*>" "" | replaceRE "\\s+" " " | replaceRE "^\\s+|\\s+$" "" | truncate 200 }}
+            {{ end }}
+        {{ end }}
+    {{ end }}
+    {{ if not $description }}
+        {{ if .Params.description }}
+            {{ $descParam := .Params.description }}
+            {{ $descTrimmed := $descParam | replaceRE "^\\s+|\\s+$" "" }}
+            {{ if ne $descTrimmed "" }}
+                {{ if findRE "[*_\\[\\]]" $descTrimmed }}
+                    {{ $descHTML := $descTrimmed | markdownify }}
+                    {{ $description = $descHTML | replaceRE "<[^>]*>" "" | replaceRE "\\s+" " " | replaceRE "^\\s+|\\s+$" "" | truncate 200 }}
+                {{ else }}
+                    {{ $description = $descTrimmed | replaceRE "\\s+" " " | replaceRE "^\\s+|\\s+$" "" | truncate 200 }}
+                {{ end }}
+            {{ end }}
+        {{ end }}
+    {{ end }}
+    {{ if not $description }}
+        {{ $description = .Site.Params.description }}
+    {{ end }}
+    <meta name="description" content="{{ $description }}">
+    {{ $ogImage := "images/logos/omai_73B7E1.png" | absURL }}
+    {{ $pageURL := .Permalink | absURL }}
+    {{ $pageTitle := "" }}
+    {{ if .IsHome }}
+        {{ $pageTitle = .Site.Title }}
+    {{ else }}
+        {{ $pageTitle = printf "%s - %s" .Title .Site.Title }}
+    {{ end }}
+    {{ $ogType := "website" }}
+    {{ if or (eq .Section "om-ai") (eq .Section "case") }}
+        {{ $ogType = "article" }}
+    {{ end }}
+    <!-- Open Graph -->
+    <meta property="og:title" content="{{ $pageTitle }}">
+    <meta property="og:description" content="{{ $description }}">
+    <meta property="og:url" content="{{ $pageURL }}">
+    <meta property="og:type" content="{{ $ogType }}">
+    <meta property="og:image" content="{{ $ogImage }}">
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="{{ $pageTitle }}">
+    <meta name="twitter:description" content="{{ $description }}">
+    <meta name="twitter:image" content="{{ $ogImage }}">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;700&family=Montserrat:wght@400;500&display=swap" rel="stylesheet">

@@ -1,5 +1,6 @@
 ---
-title: "Hem"
+title: "OMAI Hem"
+Description: "Vi gör AI mänskligt. - OMAI är ett konsultbolag som hjälper företag att förstå, använda och växa med AI – på ett sätt som känns relevant, tryggt och mänskligt."
 ---
 
 {{< hero >}}
