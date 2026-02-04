@@ -36,8 +36,10 @@
         {{ $description = .Site.Params.description }}
     {{ end }}
     <meta name="description" content="{{ $description }}">
-    {{ $ogImage := "images/logos/omai_73B7E1.png" | absURL }}
-    {{ $pageURL := .Permalink | absURL }}
+    {{ $canonicalURL := .Site.Params.canonicalURL | default "https://omai.dev" }}
+    {{ $canonicalURL = $canonicalURL | strings.TrimSuffix "/" }}
+    {{ $ogImage := printf "%s%s" $canonicalURL ("/images/logos/omai_73B7E1.png" | relURL) }}
+    {{ $pageURL := printf "%s%s" $canonicalURL .Permalink }}
     {{ $pageTitle := "" }}
     {{ if .IsHome }}
         {{ $pageTitle = .Site.Title }}

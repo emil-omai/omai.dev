@@ -5,6 +5,7 @@ title = "Omai"
 [params]
   description = "Omai's hemsida"
   author = "Omai"
+  canonicalURL = "https://omai.dev"  # Canonical URL for Open Graph and absolute links
   turnstileSiteKey = "0x4AAAAAACNQSMXZq9WoK5m_"
   cloudflareAnalyticsToken = "41e94da49f91427db3c2b59aa75e945e"  # Add your Cloudflare Web Analytics token here
 
