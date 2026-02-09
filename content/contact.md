@@ -2,6 +2,7 @@
 title: "Kontakta oss"
 url: "/kontakt/"
 aliases: ["/contact/"]
+description: "Låt oss prata AI – mänskligt, enkelt och konkret. - Är du nyfiken på hur AI kan användas i ditt företag, eller har du redan testat men svårt att se affärsnyttan?"
 ---
 
 ## Låt oss prata AI – mänskligt, enkelt och konkret.

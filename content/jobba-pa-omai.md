@@ -1,5 +1,6 @@
 ---
 title: "Bygg framtiden med oss"
+description: "Vi söker nyfikna människor som vill skapa AI som gör skillnad – på riktigt. Vill du vara med och forma framtidens human-centered AI?"
 ---
 
 Vi söker nyfikna människor som vill skapa AI som gör skillnad – på riktigt.

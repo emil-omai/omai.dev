@@ -2,6 +2,7 @@
 title: "Om oss"
 url: "/om-oss/"
 aliases: ["/about/"]
+description: "Vi är OMAI - Kajsa Grip och Emil Breding"
 ---
 
 ## Vi är OMAI
