@@ -8,6 +8,12 @@ ingress: "Om AI är motorn, så är data bränslet. Men det räcker inte med sto
 **1. Från allmän kunskap till verklig affärsnytta**  
 En AI-modell har i grunden tillgång till enorma mängder allmän information. Men för att den ska göra nytta på riktigt i er verksamhet måste den förstå er specifika kontext. Utan tillgång till era unika arbetssätt och erfarenheter förblir AI-lösningen bara en allmänbildad assistent som inte kan lösa era faktiska utmaningar.
 
+{{< post-image 
+    src="posts/OMAI-post-2026-02-11.webp" 
+    alt="OMAI Insights - AI-resan börjar med ordning på er data"
+    description="AI-resan börjar med ordning på er data"
+>}}
+
 **2. Kvalitet går alltid före kvantitet**  
 Det vanligaste misstaget när man inför AI är att tro att mer data alltid är bättre. Sanningen är att relevans vinner över volym varje gång. Några få, välskrivna och uppdaterade instruktioner skapar betydligt mer värde än tusentals sidor med gammal information.
 

@@ -6,7 +6,7 @@ ingress: "Vi ser det hända gång på gång. Utan tydliga spelregler uppstår et
 ---
 
 {{< post-image 
-    src="posts/20260120/OMAI-post-2026-01-20.webp" 
+    src="posts/OMAI-post-2026-01-20.webp" 
     alt="OMAI Insights - AI-policy och grundtrygghet för innovation"
     description="AI-policy: Grundtryggheten som krävs för att satsa stort"
 >}}

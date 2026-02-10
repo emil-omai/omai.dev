@@ -6,7 +6,7 @@ ingress: "Vi pratar ofta om vad AI kan *göra* – men för sällan om hur vi se
 ---
 
 {{< post-image 
-    src="posts/20260120/OMAI-post-2026-01-26.webp" 
+    src="posts/OMAI-post-2026-01-26.webp" 
     alt="OMAI Insights - Ny europeisk standard för AI: Så bygger vi trygghet tillsammans"
     description="Ny europeisk standard för AI: ETSI EN 304 223"
 >}}

@@ -8,7 +8,7 @@ ingress: "Det pratas mycket om algoritmer och modeller, men för oss på OMAI ha
 Många tror att AI är en färdigprogrammerad maskin som har svar på allt. Sanningen är mer mänsklig än så. AI handlar till största del om förmågan att lära sig av exempel. Istället för att vi skriver långa listor med exakta regler för hur datorn ska bete sig, ger vi den massor av data att öva på.
 
 {{< post-image 
-    src="posts/20260120/OMAI-post-2026-02-02.webp" 
+    src="posts/OMAI-post-2026-02-02.webp" 
     alt="OMAI Insights - Vad menar vi egentligen med AI? (Och alla förkortningar)"
     description="Vad menar vi egentligen med AI? (Och alla förkortningar)"
 >}}
