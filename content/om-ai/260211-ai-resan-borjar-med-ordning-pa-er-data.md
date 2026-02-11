@@ -1,6 +1,6 @@
 ---
 title: "AI-resan börjar med ordning på er data"
-date: 2026-02-09
+date: 2026-02-11
 slug: "ai-resan-borjar-med-ordning-pa-er-data"
 ingress: "Om AI är motorn, så är data bränslet. Men det räcker inte med stora mängder information; den måste också vara korrekt och uppdaterad. AI fungerar som en spegel – om vi matar systemen med rörig eller gammal data, blir svaren därefter"
 ---
