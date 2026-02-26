@@ -22,7 +22,6 @@ Regeringen bygger en gemensam ”AI-verkstad” för myndigheter och kommuner so
 
 **Vår reflektion:** När det offentliga ställer om skärps kraven på hela ekosystemet. Bolag som redan nu anpassar sin infrastruktur och AI-governance efter dessa standarder får en betydande konkurrensfördel i framtida affärer.
 
-———————————————————————-
 Strategin är en bra start, men på OMAI tror vi att det krävs mer för att nå målen:
 - **Handling idag, inte 2030:** Marknaden väntar inte på statens AI-verkstäder. De som bygger och testar egna lösningar nu får störst försprång.
 - **Kvalitet före kvantitet:** Data måste vara korrekt och strukturerad för att AI ska ge verklig nytta.
@@ -32,3 +31,4 @@ Strategin är en bra start, men på OMAI tror vi att det krävs mer för att nå
 
 Regeringen har lagt grunden, men det är näringslivet som nu förverkligar visionen. Vi på OMAI hjälper er att omsätta strategin till konkret teknik och varaktig kompetens.
 
+[Sveriges AI-strategi](https://www.regeringen.se/regeringens-politik/sveriges-ai-strategi/)
