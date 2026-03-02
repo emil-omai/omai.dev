@@ -47,3 +47,4 @@ Vill du veta mer om planerna som formar Sveriges AI-utveckling?
 
 
 Hur ser er plan ut för att använda el och teknik på ett smart sätt? På OMAI hjälper vi er att hitta rätt väg framåt där tekniken gör nytta utan att slösa på resurserna.
+
