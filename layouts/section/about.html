@@ -1,0 +1,28 @@
+{{ define "main" }}
+<div class="page-container">
+    <h1>{{ .Title }}</h1>
+    <div class="content">
+        {{ .Content }}
+    </div>
+    {{ if .RegularPages }}
+    <div class="about-posts">
+        <div class="posts-list">
+            {{ range .RegularPages }}
+            <article class="post-card">
+                <div class="post-card-meta">
+                    <time datetime="{{ .Date.Format "2006-01-02" }}">{{ partial "swedish-date.html" .Date }}</time>
+                </div>
+                <h2 class="post-card-title">
+                    <a href="{{ .RelPermalink }}">{{ .Title }}</a>
+                </h2>
+                {{ if .Params.ingress }}
+                <p class="post-card-ingress">{{ .Params.ingress | .RenderString }}</p>
+                {{ end }}
+                <a href="{{ .RelPermalink }}" class="post-card-link">Läs mer →</a>
+            </article>
+            {{ end }}
+        </div>
+    </div>
+    {{ end }}
+</div>
+{{ end }}

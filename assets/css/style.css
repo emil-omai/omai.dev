@@ -510,6 +510,26 @@ main {
     }
 }
 
+/* Newcomer posts on about page – same width as content above, same look as om-ai cards */
+.page-container .about-posts {
+    margin-top: 2.5rem;
+}
+
+/* Keep post cards identical to om-ai: override .page-container typography and link style inside cards */
+.page-container .about-posts .post-card a {
+    border-bottom: none;
+}
+.page-container .about-posts .post-card .post-card-title {
+    font-size: 1.5rem;
+}
+.page-container .about-posts .post-card .post-card-ingress {
+    font-size: 1rem;
+    line-height: 1.4;
+}
+.page-container .about-posts .post-card .post-card-meta {
+    font-size: 0.875rem;
+}
+
 /* Posts */
 .posts-page {
     max-width: 1200px;
