@@ -5,6 +5,12 @@ slug: "framtidens-ledarskap-att-vaga-slappa-taget-for-att-na-langre"
 ingress: "Vi fortsätter våra spaningar från Techarena 2026 med en känsla som dröjer sig kvar: både av förväntan och en viss osäkerhet. Som ledare förväntas du ha svaren på frågor som knappt hunnit ställas. Du navigerar i en värld där AI och ny teknik förändrar arbetet, samtidigt som du bär ansvar för dina medarbetares trygghet och bolagets tillväxt."
 ---
 
+{{< post-image 
+    src="posts/OMAI-post-2026-03-16.webp" 
+    alt="OMAI Insights - Framtidens ledarskap: Att våga släppa taget för att nå längre"
+    description="Framtidens ledarskap: Att våga släppa taget för att nå längre"
+>}}
+
 Vi på OMAI förstår dig. Utmaningen handlar inte om att du saknar visioner, utan om att tiden och verktygen för att förverkliga dem ofta känns begränsade.
 
 **Ett tankeexperiment: Dina 1 000 nya medarbetare**
