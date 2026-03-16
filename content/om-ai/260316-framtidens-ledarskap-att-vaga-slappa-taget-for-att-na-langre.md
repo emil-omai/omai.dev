@@ -22,7 +22,7 @@ Fares Fares satte ord på något fundamentalt under sitt samtal: Ledarskap handl
 
 **Från "Görande" till strategisk kreativitet**
 
-Vi har klivit in i The Agentic Era. När vi börjar använda agenter som tar ansvar för resultat, inte bara utför kommandon – händer något magiskt: Tid frigörs. Det är nu du måste kliva fram som den visionära ledaren. Vad gör du med den frigjorda tiden?
+Vi har klivit in i The Agentic Era. När vi börjar använda agenter som tar ansvar för resultat, inte bara utför kommandon – händer något magiskt: **Tid frigörs.** Det är nu du måste kliva fram som den visionära ledaren. Vad gör du med den frigjorda tiden?
 
 - **Strategisk kreativitet:** När ni inte längre behöver detaljstyra processerna får ni utrymme att tänka på affärsströmmar och intäkter som ännu inte finns.
 - **Att bygga framtiden:** Din roll förskjuts till att bli en arkitekt av innovation. Istället för att övervaka hur saker görs, lägger du din kraft på vad som kommer härnäst. Du leder ditt team (och dina agenter) mot horisonter ni tidigare inte haft bandbredd att ens titta på.
