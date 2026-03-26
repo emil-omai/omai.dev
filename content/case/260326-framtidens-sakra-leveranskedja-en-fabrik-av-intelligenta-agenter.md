@@ -7,7 +7,7 @@ ingress: "**Hur ett av Sveriges största försäkringsbolag skalar sin digitala 
 Inom försäkringsbranschen är kraven på säkerhet och efterlevnad absoluta. Men när en organisation växer och antalet digitala flöden exploderar, räcker inte traditionella, manuella granskningsmetoder till. Tillsammans med kunden har vi lagt grunden för en ny standard: en skalbar arkitektur som flyttar kontrollen från mänsklig inspektion till ett intelligent, händelsestyrt ekosystem."
 ---
 
-## Utmaningen: Den mänskliga faktorn som flaskhals
+## Utmaningen: Den mänskliga faktorn som kapacitetsbegränsning
 
 I takt med att försäkringsbolagets digitala transformation accelererar, ökar mängden pipelines och arbetsflöden dramatiskt. Tidigare har granskningen av dessa vilat på individuell expertis och punktinsatser.
 
