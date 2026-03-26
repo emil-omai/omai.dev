@@ -13,7 +13,7 @@ I takt med att försäkringsbolagets digitala transformation accelererar, ökar 
 
 **Detta skapade tre strategiska utmaningar:**
 
-- **Bristande skalbarhet:** Manuella kontroller blir en personberoende flaskhals som hindrar organisationen från att växa i takt med marknadens behov.
+- **Bristande skalbarhet:** Manuella kontroller blir en personberoende kapacitetsbegränsning som hindrar organisationen från att växa i takt med marknadens behov.
 - **Inkonsekvens:** Det är förenat med stora utmaningar att upprätthålla exakt samma höga kvalitet och efterlevnad över hundratals team när processen är manuell.
 - **Reaktiv kontroll:** Risken ökar för att kritiska brister upptäcks för sent, eller att kända fel återskapas i nya projekt.
 
